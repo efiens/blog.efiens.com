@@ -1,5 +1,5 @@
 ---
-title: "Update Efiens Server Structure"
+title: "Update Efiens Server Structure Copy"
 subtitle: ""
 summary: "So Efiens blog has been restructured. From now on, we are no longer use single central server to distribute our contents, Ghost blog is okay, but not good enough for us."
 authors: [cothan]
