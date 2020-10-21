@@ -10,8 +10,8 @@ role: Efiens Advisor
 
 # Organizations/Affiliations
 organizations:
-- name: Ho Chi Minh City University of Technology
-  url: "https://github.com/efiens"
+- name: PhD Student @ CERG GMU
+  url: "https://cothan.blog"
 
 # Short bio (displayed in user profile at end of posts)
 bio: Cryptographer, Code Reverser, Hardware Engineer, PhD in Post-Quantum Benchmarking.
@@ -33,4 +33,3 @@ Duc (Cothan) Nguyen is a graduate research assistant in hardware implementation 
 
 Also, he is the founder of Efiens CTF team, Efiens has become top student CTF team in Vietnam, furthermore, Efiens team achieves honored prizes in International Olympiad in Cryptography (NSUCRYPTO) 2016, 2017, 2018, 2019 and has multiple publications in the area of Cryptography.
 
-cothan.blog
