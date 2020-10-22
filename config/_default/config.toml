@@ -21,7 +21,7 @@ copyright = "&copy;{year}. All rights reserved."
 ############################
 
 # Get last modified date for content from Git?
-enableGitInfo = true
+enableGitInfo = false
 
 # Default language to use (if you setup multilingual support)
 defaultContentLanguage = "en"
