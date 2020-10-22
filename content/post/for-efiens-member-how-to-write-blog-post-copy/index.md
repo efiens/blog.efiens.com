@@ -48,7 +48,18 @@ No one has to wake up in the middle of the night, rush to update our server when
 
 ## Blogging Structure
 
-##= So... How to write content in this blogging style ? 
+### Install Hugo-extended
+
+Hugo come with 2 version, a static generator and extended version. Use `extended`
+
+```bash
+$ hugo version
+Hugo Static Site Generator v0.76.5-60F0725B/extended linux/amd64 BuildDate: 2020-10-14T15:25:14Z
+```
+
+Don't waste time to build from source code, there are prebuilt `deb` package in https://github.com/gohugoio/hugo/releases
+
+### So... How to write content in this blogging style ? 
 
 Simple in 3 steps:
 
@@ -80,7 +91,7 @@ To start to write a post, then:
 - Edit `index.md`, if you want to use **Asciidoc** like me, just rename it to `index.adoc`. 
 - If you want to attach any image, just include the image in same folder, then call it.
 
-image::efiens.png[]
+![](efiens.png)
 
 Done. You can start to write a post. 
 
@@ -143,6 +154,11 @@ No, you only need to care about `content/authors` and `content/post`
 This blog.efiens.com will not stop here, we will add more features to this blog, since it support many many features, we can add `talks`, `publication` section to our blog.
 
 Eventually, this blog become a wikipedia for us, the collection of our knowledge. 
+
+### I want to add a feature picture ? 
+
+Simple. Add picture in the `content/post/this-is-a-post` directory, name it `featured.jpg` or `featured.png`, then it will work.
+
 
 ## Conclusion
 
