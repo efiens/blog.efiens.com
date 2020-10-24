@@ -1,7 +1,7 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "EfiensCTF2019 Round2 Writeups"
+title: "[EfiensCTF2019 Round2] All Challenges Writeups"
 subtitle: ""
 summary: "This is a write-ups for the Efiens's qualification CTF - round 2 and this is my first CTF write-ups ever."
 authors: [midas]
