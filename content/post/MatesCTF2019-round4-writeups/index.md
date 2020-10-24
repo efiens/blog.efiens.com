@@ -56,8 +56,6 @@ The task here is that you have 2 bottles that can hold x and y litres, what you 
 
 My solution to this is nothing fancy and it is not even close to be any good. In fact, in some case, it will go into an infinite loop, but I would just disconnect and run again then :v. Here is the solution: (1): empty 2 bottles and then fill the second one. (2): keep pouring from the second one to the first one and then empty the first one until the value in the second one is less than the first. (3): pour from the second one to the first one, fill the second one and pour from it to the first one again. (4): empty the first one. And then keep repeating (2) (3) (4) until we achieve z.
 
-Script: https://github.com/LKMDang/CTFs/blob/master/MatesCTF2019_Round4/fill_solve.py
-
 ## Web1 (web)
 
 This challenge were solved by me and `@mrsrc` and `@phieulang`.
