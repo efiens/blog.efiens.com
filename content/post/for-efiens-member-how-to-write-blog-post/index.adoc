@@ -48,6 +48,12 @@ No one has to wake up in the middle of the night, rush to update our server when
 
 == Blogging Structure
 
+=== Install Go language 
+
+Make sure you install Go module that support `go mod`. 
+
+Do `sudo apt-get update && sudo apt-get upgrade -y` to upgrade your Go to new version.
+
 === Install Hugo-extended
 
 Hugo come with 2 version, a static generator and extended version. Use `extended`
@@ -79,6 +85,7 @@ If you name is not appeared as a folder in `content/authors/`, then:
 - `cd content/authors/new_name/`
 - Pick a png or jpg picture that represent you, name it `avatar.jpg` or `avatar.png`
 - Modify `_index.md`
+- Enable yourself as superuser. `superuser: true`. We value all members who contribute to Efiens's blog. And it's look nicer in the page too. 
 
 Done. You only need to do this once. Then commit it. 
 
