@@ -1,7 +1,7 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "[TetCTF2019] All Pwn Writeups"
+title: "[TetCTF2020] All Pwn Writeups"
 subtitle: ""
 summary: ""
 authors: [midas]
