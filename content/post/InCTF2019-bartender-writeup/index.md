@@ -29,9 +29,11 @@ projects: []
 ---
 
 Challenge: [Link](https://github.com/minhbq-99/ctf/tree/master/inctf2019/bartender/files)
+
 Bài này cho ta 1 file PE và 1 file xml. Mở file xml lên coi mình thấy có nhắc đến SEHOP
 
 `<SEHOP Enable="false" TelemetryOnly="false" />`
+
 Qua tìm hiểu trên mạng mình biết được đây là 1 mitigation để tránh SEH (Structured Exception Handler) overwrite exploit khi có lỗi buffer overflow. Vì thế, mình đi tìm lỗi buffer overflow trong bài và phát hiện được lỗi đó ở chức năng add new ingredient
 ```c
 char Buffer; // [esp+Ch] [ebp-24h]
@@ -58,13 +60,16 @@ Tới đây, mình đi tìm hiểu về SEH overwrite exploit và dùng x32dbg �
 
 SEH record gồm 2 pointer, pointer đầu trỏ tới vị trí của record tiếp theo, pointer sau trỏ tới hàm handler và SEH record nằm ngay trên stack. Như vậy chỉ cần ghi đè 2 least significant byte của pointer tới hàm handler là mình có thể kiểm soát RIP.
 
-payload = "A"*0x5c + "\xff\xff\xff\xff" + "\xc0\x11"
+`payload = "A"*0x5c + "\xff\xff\xff\xff" + "\xc0\x11"`
+
 Mình dùng payload trên ở chỗ ReadFile để overwrite stack tuy nhiên chương trình bị status stack buffer overrun ngay lập tức. Mình nghĩ là do có cơ chế nào đó phát hiện buffer overflow nhưng tìm kiếm từ khóa đó trên mạng thì mình không có được gì. Sau đó, mình debug trace tiếp các lệnh tiếp theo thì thấy exception xảy ra ở hàm strncpy_s
 
 `strncpy_s(Dst, 0x1Fu, Src, 0x1Fu);`
-Src trỏ tới Buffer mà mình ghi vào ở ReadFile còn Dst là vùng nhớ trên heap. Mình tiếp tục step vào hàm strncpy_s thì nhận thấy lỗi là do chiều dài của string chứa ở Src không chứa đủ trong 0x1f byte. Các bạn có thể đọc reference để hiểu rõ hơn về hàm này. Vậy mình sửa payload lại thành
+
+Src trỏ tới Buffer mà mình ghi vào ở ReadFile còn Dst là vùng nhớ trên heap. Mình tiếp tục step vào hàm `strncpy_s` thì nhận thấy lỗi là do chiều dài của string chứa ở Src không chứa đủ trong 0x1f byte. Các bạn có thể đọc reference để hiểu rõ hơn về hàm này. Vậy mình sửa payload lại thành
 
 `payload = "\0" + "A"*0x5b + "\xff\xff\xff\xff" + "\xc0\x11"`
+
 Rồi make a drink xong sử dụng tính năng remove ingredient với index phù hợp là có được flag.
 
 Exploit: [solve.py](https://github.com/minhbq-99/ctf/blob/master/inctf2019/bartender/solve.py)
