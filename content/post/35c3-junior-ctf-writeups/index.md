@@ -36,9 +36,9 @@ Source: https://junior.35c3ctf.ccc.ac/uploads/stringmaster1-484b8ecec5ffc62ba154
 
 Chương trình có 3 tính năng chính:
 
-swap: trao đổi ký tự giữa 2 chuỗi đã cho
-replace: thay thế ký tự ở chuỗi 1 bằng 1 ký tự khác
-print: in chuỗi thứ nhất
+- swap: trao đổi ký tự giữa 2 chuỗi đã cho
+- replace: thay thế ký tự ở chuỗi 1 bằng 1 ký tự khác
+- print: in chuỗi thứ nhất
 
 Và đặc biệt chương trình đã có sẵn hàm spawn shell.
 
