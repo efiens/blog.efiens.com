@@ -1,7 +1,7 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "InCTF2019 Bartender Writeup"
+title: "[InCTF2019] Bartender writeup"
 subtitle: ""
 summary: ""
 authors: [pickaxe]
