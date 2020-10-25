@@ -59,6 +59,7 @@ Trên con vps, mình viết một script nhỏ để nó gửi shellcode lên se
 
 Exploit code:
 https://github.com/minhbq-99/ctf/blob/master/tetctf/sandbox/solve.py
+
 Open_read_write shellcode:
 https://github.com/minhbq-99/ctf/blob/master/tetctf/sandbox/shellcode_server.asm
 
