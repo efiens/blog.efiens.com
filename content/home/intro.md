@@ -19,8 +19,9 @@ subtitle = " "
 
   # Text color (true=light or false=dark).
   text_color_light = true
-
+  
   # Background image.
+  # https://wowchemy.com/docs/page-builder/#background
   image = "banner.png"
   image_size = "cover"
   image_position = "center"
