@@ -4,8 +4,8 @@
 title: "Từ XXE Attack đến Phar Deserialization trong PHP 7.4"
 subtitle: ""
 summary: "Mình tình cờ đọc được bài Out of Hand :: Attacks Against PHP Environments - phân tích những điểm đáng chú ý về bảo mật của PHP 7.4. Trong bài có đoạn viết về cách tận dụng lỗi XXE để kích hoạt Phar Deserialization. Mình sẽ trình bày lại theo cách hiểu của mình."
-authors: []
-tags: []
+authors: [DoubleVKay]
+tags: [php]
 categories: []
 date: 2020-10-27T00:55:55+07:00
 lastmod: 2020-10-27T00:55:55+07:00
