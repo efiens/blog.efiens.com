@@ -298,7 +298,7 @@ At first sight, this is an ECC challenge without the curve parameters p, a, and 
 [(247, 247), (246, 243), (246, 247), (247, 247)]
 ```
 
-Furthermore, p is prime since this is a standard ECC problem without special notes. Now, our first goal is to rearrange some equations to deduce p, a, and b from the 4 points, namely $(x_1, y_1), (x_2, y_2), (x_3, y_3), (x_4, y_4)$. Since they are on the curve $y^2 = x^3 + ax + b \pmod p$, we have:
+Furthermore, p is prime since this is a standard ECC problem without special notes. Now, our first goal is to rearrange some equations to deduce p, a, and b from the 4 points, namely $(x_1, y_1), (x_2, y_2), (x_3, y_3)$ and $(x_4, y_4)$. Since they are on the curve $y^2 = x^3 + ax + b \pmod p$, we have:
 
 $$y_1^2 \equiv x_1^3 + ax_1 + b \pmod p$$
 $$y_2^2 \equiv x_2^3 + ax_2 + b \pmod p$$
