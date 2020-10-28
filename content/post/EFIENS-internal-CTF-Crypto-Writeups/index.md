@@ -396,6 +396,6 @@ sage: SmartAttack(P, Q, p)
 478115410503360055974110930823680446240935161179751428029481428727256189
 ```
 
-Finally, long_to_bytes would reveal the flag.
+Finally, `long_to_bytes` would reveal the flag.
 
 Flag is `EFIENS{Y0U_R_S0_F***1Ng_SM4RT}`
