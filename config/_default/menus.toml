@@ -15,5 +15,5 @@
 
 [[main]]
   name = "Team"
-  url = "#people"
+  url = "people"
   weight = 30
