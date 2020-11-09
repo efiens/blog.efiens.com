@@ -6,8 +6,8 @@ authors: [cothan]
 tags: []
 categories: []
 date: 2020-10-21T17:25:20-04:00
-lastmod: 2020-10-21T17:25:20-04:00
-featured: false
+lastmod: 2020-11-9T17:25:20-04:00
+featured: true
 draft: false
 
 image:
@@ -86,6 +86,17 @@ If your name has not appeared as a folder in `content/authors/`, then:
 - Pick a png or jpg picture that represents you, name it `avatar.jpg` or `avatar.png`
 - Modify `_index.md`
 - Enable yourself as superuser. `superuser: true`. We value all members who contribute to Efiens's blog. And it looks nicer in the page too. 
+- In `user_groups`, set one of the 3 following:
+
+** *Members*: You've passed the qualify round
+** *Core Members*: Your shirts have `sudo`
+** *Advisors*: Beside CTF activity, you help manage the club.
+
+- In `role`, describe your responsibility within 3 words. For example, `Pwn` is my main category, set `role: Pwner`, be creative. You can be a `memer` and that's fine. :))
+
+- In `education`, the next generation of Efiens may come from your high school, so you may want to add high school and your achievements as well, so feel free to list them. 
+
+- In `interests`, list your interests in security, it can be both what you do and what you like to do in the future.
 
 Done. You only need to do this once. Then commit it. 
 
