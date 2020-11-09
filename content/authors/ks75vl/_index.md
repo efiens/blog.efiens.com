@@ -6,6 +6,11 @@ title: "ks75vl"
 authors:
 - "ks75vl"
 
+role: Code Reverser
+
 # Is this the primary user of the site?
 superuser: true
+
+user_groups:
+- Core Members
 ---

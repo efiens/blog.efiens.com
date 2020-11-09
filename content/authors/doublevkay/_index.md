@@ -10,7 +10,7 @@ authors:
 superuser: true
 
 # Role/position (e.g., Professor of Artificial Intelligence)
-role: Efiens Member
+role: Web Pentester
 
 # Organizations/Affiliations
 organizations:
@@ -38,4 +38,6 @@ social:
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: "doublevkay@gmail.com"
 
+user_groups:
+- Core Members
 ---

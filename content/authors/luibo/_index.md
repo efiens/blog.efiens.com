@@ -6,6 +6,11 @@ title: "Luibo"
 authors:
 - "luibo"
 
+role: Advisor
+
 # Is this the primary user of the site?
 superuser: true
+
+user_groups:
+- Advisors
 ---

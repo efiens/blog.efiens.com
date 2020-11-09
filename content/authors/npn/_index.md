@@ -6,6 +6,11 @@ title: "_.npn._"
 authors:
 - "npn"
 
+role: Cryptographer
+
 # Is this the primary user of the site?
 superuser: true
+
+user_groups:
+- Core Members
 ---
