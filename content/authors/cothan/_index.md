@@ -20,6 +20,14 @@ organizations:
 # Short bio (displayed in user profile at end of posts)
 bio:  My research interests include implementation of Post-Quantum Cryptography using High Level Synthesis in FPGA and NEON instruction in ARM platform, beside, sometimes I play CTFs, Crypto and Reverse Engineering are my favorite categories.
 
+interests:
+- Post-Quantum Cryptography
+- SIMD Cryptographic Implementation
+- Deep Learning Binary Analysis
+- Capture The Flag
+- High Level Synthesis
+
+
 
 education:
   courses:
