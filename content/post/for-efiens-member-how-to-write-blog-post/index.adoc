@@ -86,7 +86,7 @@ If your name has not appeared as a folder in `content/authors/`, then:
 - Pick a png or jpg picture that represents you, name it `avatar.jpg` or `avatar.png`
 - Modify `_index.md`
 - Enable yourself as superuser. `superuser: true`. We value all members who contribute to Efiens's blog. And it looks nicer in the page too. 
-- In `user_groups`, set one of the 3 following:
+- In `user_groups`, set one of the 3 following, see available user groups at `content/team/people.md`:
 
 ** *Members*: You've passed the qualify round
 ** *Core Members*: Your shirts have `sudo`
