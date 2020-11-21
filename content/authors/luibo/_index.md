@@ -13,6 +13,28 @@ superuser: true
 
 user_groups:
 - Advisors
+
+
+bio: I like programming languages. I want to read those compiler stuff, but I'm just a noob.
+
+interests:
+- Compiler Technologies
+- Programming Languages
+- Program Analysis and Verification
+- Windows Internals
+- Memory Forensics
+
+social:
+- icon: envelope
+  icon_pack: fas
+  link: "mailto:ctf.luibo@gmail.com"
+- icon: twitter
+  icon_pack: fab
+  link: https://twitter.com/luibo_efiens
+- icon: github
+  icon_pack: fab
+  link: http://github.com/nganhkhoa
+
 ---
 
 Khoa (Luibo) is a security researcher originated from the Efiens security club. He attended many security contests and
