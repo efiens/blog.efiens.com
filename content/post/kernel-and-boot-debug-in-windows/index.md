@@ -4,8 +4,8 @@
 title: "Kernel and Boot Debug in Windows"
 subtitle: ""
 summary: ""
-authors: []
-tags: []
+authors: [luibo]
+tags: [windows, windbg, kernel debug, boot debug]
 categories: []
 date: 2020-11-27T12:43:11+07:00
 lastmod: 2020-11-27T12:43:11+07:00
