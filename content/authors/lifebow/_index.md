@@ -7,7 +7,7 @@ authors:
 - "lifebow"
 
 # Is this the primary user of the site?
-superuser: false
+superuser: true
 
 # Short bio (displayed in user profile at end of posts)
 bio: sleepaholic
@@ -26,7 +26,7 @@ social:
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: "lifebowisme@gmail.com"
-s
+
 user_groups:
 - Members
 ---
