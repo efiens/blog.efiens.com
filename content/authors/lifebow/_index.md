@@ -1,3 +1,4 @@
+---
 # Display name
 title: "lifebow"
 
@@ -28,3 +29,4 @@ email: "lifebowisme@gmail.com"
 s
 user_groups:
 - Members
+---
