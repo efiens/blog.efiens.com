@@ -59,3 +59,4 @@ user_groups:
 - Members
 ---
 
+Everyday Fancy
