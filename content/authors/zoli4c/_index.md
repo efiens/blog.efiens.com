@@ -1,10 +1,10 @@
 ---
 # Display name
-title: "DoubleVKay"
+title: "zoli4c"
 
 # Username (this should match the folder name and the name on publications)
 authors:
-- "doublevkay"
+- "zoli4c"
 
 # Is this the primary user of the site?
 superuser: true
@@ -15,7 +15,7 @@ role: Web Pentester
 # Organizations/Affiliations
 organizations:
 - name: Student @ HCMUT
-  url: "http://doublevkay.home.blog/"
+  url: ""
 
 # Short bio (displayed in user profile at end of posts)
 bio: Web Pentester
@@ -27,19 +27,19 @@ bio: Web Pentester
 social:
 - icon: envelope
   icon_pack: fas
-  link: 'mailto:doublevkay@gmail.com'  # For a direct email link, use "mailto:test@example.org".
+  link: 'mailto:giangdeokinh@gmail.com'  # For a direct email link, use "mailto:test@example.org".
 - icon: twitter
   icon_pack: fab
-  link: https://twitter.com/ViKhangVo
+  link: https://twitter.com/giangvq1
 - icon: github
   icon_pack: fab
-  link: https://github.com/vovikhangcdv
+  link: https://github.com/zoli4c
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: "doublevkay@gmail.com"
+email: "giangdeokinh@gmail.com"
 
 user_groups:
 - Core Members
 ---
 
-Noob ...
+VQG = Vuon Quoc Gia

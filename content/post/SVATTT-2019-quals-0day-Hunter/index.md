@@ -3,7 +3,7 @@
 
 title: "SVATTT 2019 Quals 0day Hunter"
 subtitle: ""
-summary: ""
+summary: "How we struggled until the last minutes of SVATTT 2019"
 authors: [luibo]
 tags: []
 categories: []
@@ -28,12 +28,12 @@ image:
 projects: []
 ---
 
-On 3rd November 2019, me and my team joined the SVATTT (Asean Student Contest on Information Security) qualification round. We joined in under the name "noobiens" and luckily ranked second in the South region. This is our writeup to the reversing challenge "0day hunter". This challenge is from @anhdaden, who recently claimed a VMWare bug to escape virtual box. Without furthur ado, let's get started.
+On 3rd November 2019, me and my team joined the SVATTT (Asean Student Contest on Information Security) qualification round. We joined under the name "noobiens" and luckily ranked second in the South region. This is our writeup to the reversing challenge "0day hunter". This challenge is from @anhdaden, who recently claimed a VMWare bug to escape virtual box. Without furthur ado, let's get started.
 
 # The challenge
-The challenge gives us two folders, *challenge* and *tool*. In side *tool*, there is an AFL binary. AFL is a fuzzing tool created by Google, you can find the source for the tool on [Github](https://github.com/google/AFL). However, this challenge uses a modified version of the fuzzer. We took quite a time looking on AFL for the solution but it was not the right approach. The challenge folder has a binary named `fileinfo.exe`, `fuzz.bat`, a folder *seeds* and a `winafl.dll` dynamic library file.
+The challenge gives us two folders, *challenge* and *tool*. Inside *tool*, there is an AFL binary. AFL is a fuzzing tool created by Google, you can find the source for the tool on [Github](https://github.com/google/AFL). However, this challenge uses a modified version of the fuzzer. We took quite a time looking on AFL for the solution but it was not the right approach. The challenge folder has a binary named `fileinfo.exe`, `fuzz.bat`, a folder *seeds* and a `winafl.dll` dynamic library file.
 
-We are told to find the flag in `fileinfo.exe` and so we did, the file is not very big, it will read the input file and output information of the file.
+We are told to find the flag in `fileinfo.exe` and so we did, the file is not very big, it reads the input file and displayes information of the file. The below python pseudocode is the program's mechanics.
 ```python
 if __name__ == "__main__":
   import sys
@@ -48,7 +48,8 @@ if __name__ == "__main__":
   printFileType(filebuf)
 ```
 
-The first 4 functions is very small and understandable, but the **FileType** function is very big. However, looking a few of the instruction, it basically checks the first few bytes for signature. If we went to the strings section, we can see strings like:
+The first 4 functions is very small and understandable by their name, but the **printFileType** function is huge. However, looking through the first few instructions, it basically checks the first few bytes for signature. If we went to the strings section, we can see strings like:
+
 ```
 .rdata:0000000000405050	00000020	C	Palm Desktop To Do Archive file
 .rdata:0000000000405070	00000023	C	Palm Desktop Calendar Archive file
@@ -60,7 +61,7 @@ The first 4 functions is very small and understandable, but the **FileType** fun
 .rdata:0000000000405113	0000000D	C	PDF document
 ```
 
-And if we look further, we see this magic string
+And if we look further, we'll see this magic string
 ```
 .rdata:00000000004052BE	0000000C	C	SVATTT file
 ```
@@ -103,7 +104,7 @@ And this points us toward
 .text:00000000004025E6                 call    svattt_print
 ```
 
-It checks the first 6 bytes for SVATTT, and call a function.
+It checks the first 6 bytes for a matching "SVATTT", and calls a function.
 ```
 .text:0000000000401A11 sbox            = byte ptr -120h
 .text:0000000000401A11 key             = byte ptr -20h
@@ -187,7 +188,7 @@ It checks the first 6 bytes for SVATTT, and call a function.
 .text:0000000000401B67                 retn
 ```
 
-What the function does is
+Here is the python pseudocode of the above function:
 ```python
 def svatttfile(filebuf):
   key = [0x9f, 0x9a, 0x8d, 0x98, 0x98, 0x98]
@@ -207,11 +208,11 @@ def svatttfile(filebuf):
       abort()
 ```
 
-At this point, our team thought that we need to fuzz to get input of the **secret_func1** and **secret_func2**. We spent a lot of time looking for ways to generate fuzzing input file without knowing that it is the wrong direction. The README distracted us from going the right way and try to reverse **secret_funcs**. Until the hint comes:
+At this point, our team thought that we needed to fuzz to get input of the **secret_func1** and **secret_func2**. We spent a lot of time looking for ways to generate the input file without knowing that it is not intended. Then the hint came:
 
 > It's RC4
 
-It all clear now, they "really" want us to reverse the functions, not fuzzing it. So we get back to the file, throwing all the RC4 implementation online we could find to solve this challenge. We have the result buffer SOMEARR, and the key, we just need to decrypt using RC4. But it didn't work, **secret_func1** looks just like KSA step in RC4, but PRGA is nowhere alike. Out teamate @pickaxe find the difference, and rewrite the script. And we get message.
+The author wanted us to reverse the functions, not fuzzing it. We get back to the file, throwing all the RC4 implementation online we could find to solve this challenge. We had the result buffer SOMEARR, and the key, we just need to decrypt SOMEARR using RC4. But it didn't work, **secret_func1** looks just like KSA step in RC4, but PRGA is nowhere alike. Out teamate @pickaxe found the differences, and rewrote the script. And we get message.
 ```python
 def crypt():
 	plain = "DACB317F819820386CCF03A7FF04645E46FD5FE7037EB1DABBE1EB0E67703BCCF29E049381284107F1F9079ACF36DE42970C25A7".decode('hex')
@@ -233,11 +234,11 @@ def crypt():
 print(''.join(map(chr, crypt())))
 ```
 
-plain is SOMEARR, and S is the arr1 we get after **secret_func1**.
+where plain is SOMEARR, and S is the arr1 we get after **secret_func1**.
 
 > SVATTT hint: you may wanna take a look at winafl.dll
 
-Ok, I'm fine! And we went on looking at *winafl.dll*. There are many functions, I cannot find any function that looks like a flag function. Turns out, there is a function that will modify the check buffer while the fuzzer is running. Again, my teammate @pickaxe found it, he notice a function that changes the `memcmp` to another function. Oh my f***ing wow.
+Thought we are finished, but nope. We went on looking at *winafl.dll*. There are many functions, I cannot find any function that looks like a flag function. Turns out, there is a function that will modify the check buffer while the fuzzer is running (probably how fuzzer works). Again, my teammate @pickaxe found it. He noticed a function that changes the `memcmp` to another function.
 ```
 mov     rcx, [rbx]
 lea     rdx, aMemcmp    ; "memcmp"
@@ -250,7 +251,7 @@ call    drwrap_wrap
 
 (I saw this function once but a whole lot numbers didn't get me anything so I skipped it, didn't know I was looking at the right place)
 
-And again, it's RC4, the buffer being compared to SOMEARR is changed to
+Again, it's RC4, the buffer compared to SOMEARR is changed into to
 ```
 mov     dword ptr [rbp+var_40], 7F31CBDAh
 mov     dword ptr [rbp+var_40+4], 387B9881h
@@ -291,4 +292,8 @@ Rerun the file, we got:
 
 > SVATTT{http://dynamorio.org/docs/group__drwrap.html}
 
-5h42m just 3 minutes till the end of the contest. Rising from rank 11 to rank 4 country. It was a big relief, I thought we couldn't make it. Thank you @pickaxe for being very patient till the end of the contest. That last minute was huge achievement.
+When I submitted this flag, it was 5h42m. Only 3 minutes before the end of the contest. This challenge makes our team rise from rank 11 to rank 4 country. It was a big relief, I thought we couldn't make it. Thank you @pickaxe for being very patient. That last minute was a huge achievement.
+
+
+
+The flags shows [a function in DynamoRIO](http://dynamorio.org/dynamorio_docs/group__drwrap.html) API to wraps and replace a function, probably what the author used to wrap and replace `memcmp`.

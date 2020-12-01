@@ -10,7 +10,7 @@ authors:
 superuser: true
 
 # Role/position
-role: Founder
+role: Security Researcher
 
 # Organizations/Affiliations
 organizations:
@@ -33,7 +33,7 @@ education:
   courses:
   - course: PhD in Hardware Implementation of Post-Quantum Cryptography
     institution: George Mason University, VA, USA
-    year: 2017
+    year: 2017-2023
   - course: BSc in Computer Engineering
     institution: Bach Khoa University, Vietnam
     year: 2015
@@ -45,9 +45,9 @@ social:
 - icon: twitter
   icon_pack: fab
   link: https://twitter.com/c0th4n
-- icon: google-scholar
-  icon_pack: ai
-  link: https://scholar.google.com/citations?user=5NgMMB4AAAAJ
+# - icon: google-scholar
+#   icon_pack: ai
+#   link: https://scholar.google.com/citations?user=5NgMMB4AAAAJ
 - icon: github
   icon_pack: fab
   link: http://github.com/cothan
