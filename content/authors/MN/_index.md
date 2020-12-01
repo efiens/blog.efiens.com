@@ -10,7 +10,7 @@ authors:
 superuser: false
 
 # Role/position (e.g., Professor of Artificial Intelligence)
-role:  script kid·die
+role:  Script kid·die
 
 # Organizations/Affiliations
 # organizations:
@@ -18,7 +18,7 @@ role:  script kid·die
 #   url: ""
 
 # Short bio (displayed in user profile at end of posts)
-bio: script kid·die
+bio: Script kid·die
 
 # List each interest with a dash
 # interests:
@@ -66,6 +66,6 @@ highlight_name: false
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
 user_groups:
-- Members
+- Core Members
 ---
 
