@@ -10,7 +10,7 @@ authors:
 superuser: false
 
 # Role/position (e.g., Professor of Artificial Intelligence)
-role: Noob
+role: Mèo-bu
 
 # Organizations/Affiliations
 # organizations:
@@ -18,7 +18,7 @@ role: Noob
 #   url: ""
 
 # Short bio (displayed in user profile at end of posts)
-bio: Noob
+bio: Mèo-bu
 
 # List each interest with a dash
 # interests:
