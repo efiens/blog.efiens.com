@@ -116,7 +116,7 @@ mov     rdx, [rdx+88h]
 xor     eax, eax
 retn
 ```
-Tới đây, do kiểm soát `rdx` nên mình có thể kiểm soát rất nhiều thanh ghi khác trong đó có cả `rsp` rất thuận tiện cho việc ROP. Gọi `mprotect` để giúp heap có thêm quyền execute sau đó nhảy tới shellcode open read write để đặt trên heap là mình có được flag.
+Tới đây, do kiểm soát `rdx` nên mình có thể kiểm soát rất nhiều thanh ghi khác trong đó có cả `rsp` rất thuận tiện cho việc ROP. Gọi `mprotect` để giúp heap có thêm quyền execute sau đó nhảy tới shellcode open read write đã đặt trên heap là mình có được flag.
 
 Full exploit
 ```python
