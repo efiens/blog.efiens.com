@@ -30,6 +30,6 @@ user_groups:
 - Advisors
 ---
 
-Ky is a second-year Master student in the MPRI (Master Parisien de Recherche en Informatique) program, enrolled at the Ecole Normale Supérieure (ENS) Paris. Previously, Ky entered ENS from Licence 3 to complete the Bachelor's degree in an inter-university program with University Paris Diderot. Before ENS, he was an HCMUT alumnus at CSE Department and joined Efiens in 2016.
+Ky is a second-year Master student in the MPRI (Master Parisien de Recherche en Informatique) program, enrolled at the Ecole Normale Supérieure (ENS) Paris. Previously, Ky entered ENS from Licence 3 to complete the Bachelor's degree in an inter-university program with University Paris Diderot. Before ENS, he was an HCMUT alumnus at CSE faculty and joined Efiens in 2016.
 
 Despite not being in active in CTFs anymore, Ky still participates in either crypto-related discussions or chit-chats with the current members of Efiens.
