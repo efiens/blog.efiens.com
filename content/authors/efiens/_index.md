@@ -14,7 +14,7 @@ organizations:
   url: "https://github.com/efiens"
 
 # Short bio (displayed in user profile at end of posts)
-bio: We were founded to provide resources and study environment to those interested in exploring the world of cyber security.
+bio: Efiens club is where computer security enthusiasts unified, we focus on modern security topic in many areas such as *Cryptography, Binary Exploitation, Reverse Engineering, Web Exploitation, Hardware and High Speed Computing.*
 
 #interests:
 #- Artificial Intelligence
@@ -38,15 +38,25 @@ bio: We were founded to provide resources and study environment to those interes
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
 #   form "mailto:your-email@example.com" or "#contact" for contact widget.
 social:
-- icon: envelope
-  icon_pack: fas
-  link: 'about/#contact'  # For a direct email link, use "mailto:test@example.org".
-- icon: users
+- icon: user
   icon_pack: fas
   link: https://efiens.com
 - icon: github
   icon_pack: fab
   link: https://github.com/efiens
+- icon: facebook
+  icon_pack: fab
+  link: https://www.facebook.com/efiens.team
+- icon: blog
+  icon_pack: fas
+  link: https://blog.efiens.com
+- icon: terminal
+  icon_pack: fas
+  link: 'https://ctftime.org/'
+- icon: envelope
+  icon_pack: fas
+  link: 'about/#contact'  # For a direct email link, use "mailto:test@example.org".
+
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 # - icon: cv
@@ -63,6 +73,8 @@ social:
 #- Visitors
 ---
 
-EFIENS is a cyber security club comprised primarily of students and alumni from Ho Chi Minh City University of Technology (HCMUT). We were founded to provide resources and study environment to those interested in exploring the world of cyber security.
+Efiens is a cyber security club comprised primarily of students and alumni from Ho Chi Minh City University of Technology (HCMUT). We were founded to provide resources and study environment to those interested in exploring the world of cyber security.
+
+Efiens club is where computer security enthusiasts unified, we focus on modern security topic in many areas such as *Cryptography, Binary Exploitation, Reverse Engineering, Web Exploitation, Hardware* and *High Speed Computing.*
 
 At our core, we are a group of self-taught security enthusiasts who enjoy sharing our knowledge with those interested in learning. We believe in the freedom of information, and do our best to prepare resources, organize meetings, and host educational events on our own time.
