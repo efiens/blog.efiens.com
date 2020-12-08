@@ -12,7 +12,7 @@ role: Ngắn gọn mô tả chức danh
 superuser: false
 
 user_groups:
-- Members
+- Non-Members
 ---
 
 Ghi mô tả profile ở đây, ghi dài dài vào
