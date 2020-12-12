@@ -1,7 +1,7 @@
 ---
 # Documentation: https://wowchemy.com/docs/managing-content/
 
-title: "Usb Fuzzing and Web exploitation"
+title: "Usb Fuzzing"
 event:
 event_url:
 location:
@@ -11,8 +11,8 @@ address:
   region:
   postcode:
   country:
-summary: quick summary
-abstract: 
+summary: In this talk, @pickaxe introduce the concept and machanism of fuzzing the USB in Linux kernel using Syzkaller
+abstract: By adding a dummy kernel driver for handling USB signals and transactions, we can fuzz the USB using QEMU. This talk has a deep introduction on USB and Linux kernel fuzzing techniques.
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
@@ -24,7 +24,7 @@ all_day: false
 publishDate: 2020-12-04T09:00:03-05:00
 
 # add Multiple author here
-authors: [pickaxe, mn]
+authors: [pickaxe]
 tags: [usb, exploit, pwn, fuzzing]
 
 # Is this a featured talk? (true/false)
@@ -47,7 +47,7 @@ image:
 #   icon: twitter
 
 # Optional filename of your slides within your talk's folder or a URL.
-url_slides:
+url_slides: https://drive.google.com/file/d/11smR2avd3EyL90qNemkujwBPZqbwL88_/view?usp=sharing
 
 url_code:
 url_pdf:
