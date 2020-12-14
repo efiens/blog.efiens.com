@@ -288,4 +288,197 @@ Warning: bad code, will clean up someday.
 
 ## De1CTF 2020 Code Runner
 
+There are 2 writeups on this challenge, both attempted with ANGR and solved it arround 10-20 seconds, which is slow. I wrote the simulator and apply symbolic execution manually. This reduces the runtime to less than 1 second.
+
+The challenge gives an endpoint, when netcat to the endpoint, a simple proof of work challenge is presented, after passing the challenge, the server output a MIPS binary base64 encodeded and wait for the correct submission of the binary.
+
+First I use elftools to get the code section of the binary, then use capstone to disassemble all the bytecode into a list of instructions.
+
+```python
+from capstone import *
+from elftools.elf.elffile import ELFFile
+
+def get_insn_list(bytecode, first_addr):
+    insn_list = {}
+    md = Cs(CS_ARCH_MIPS, CS_MODE_MIPS64 + CS_MODE_LITTLE_ENDIAN)
+    for insn in md.disasm(bytecode, first_addr):
+        insn_list[insn.address] = (hex(insn.address), insn.mnemonic, insn.op_str, insn.size)
+    return insn_list
+
+f = ELFFile(open('code_runner', 'rb'))
+symbols = f.get_section_by_name('.dynsym')
+[main] = symbols.get_symbol_by_name('main')
+text = f.get_section_by_name('.text')
+
+first_addr = text['sh_addr']
+check_start = 0x00401994
+
+bytecode = text.data()
+insn_list = get_insn_list(bytecode, first_addr)
+```
+
+Then starting at the first function we know each function uses four bytes for checking and proceed if the conditions are either true or false. The functions go in until the last function is met which has no check. Simulate the code is quite hard, we have to find the correct branch to jump into (because scripting is very hard to manage exploration states). I have to build the control flow graph for each function and detect the correct path to. To build the control flow graph, we first split the function by its terminated instruction (branch/jump) and put the instructions into blocks called basic blocks.
+
+```python
+class Node:
+    def __init__(self, insn, next_func = None):
+        self.insn = insn
+        self.addr = insn[0][0]
+        self.next_func = next_func
+        (_, i, op) = insn[-1]
+        if i == "b":
+            self.branch = "branch"
+            self.to = int(op, 16)
+        elif i == "beq":
+            self.branch = "equal"
+            self.to = int(op.split(', ')[-1], 16)
+        elif i == "bne":
+            self.branch = "non_equal"
+            self.to = int(op.split(', ')[-1], 16)
+        else:
+            self.branch = "return"
+            self.to = None
+        self.mustbe = None
+
+def split_to_nodes(func):
+    nodes = []
+    insn = []
+    next_func = None
+    for (addr, i, op) in func:
+        insn += [(addr, i, op)]
+        if i == "jal":
+            next_func = int(op, 16)
+        if i == "b" or i == "beq" or i == "bne" or i == "jr":
+            nodes += [Node(insn, next_func)]
+            next_func = None
+            insn = []
+    return nodes
+```
+
+After having the control flow graph, I follow the branch instruction that `mustbe` made and add constraints based on that. Now I only need to simulate the rest of MIPS code to add Symbolic variables and build up the constraints as the code simulate.
+
+```python
+    def condition(self, z, param):
+        # PIndex is the index to input character
+        # I don't know why I created a class for the index
+        reg = {}
+        reg["$zero"] = 0
+        reg["$sp"] = 0
+        for (_, i, op) in self.insn:
+            # print(i, op)
+            if i in ["sw", "nop", "jal", "negu", "b"]:
+                pass
+            elif i == "move":
+                [out, x] = op.split(', ')
+                reg[out] = reg[x]
+            elif i == "lw":
+                [out, x] = op.split(', ')
+                if x == "0x20($fp)":
+                    reg[out] = PIndex()
+            elif i == "lbu":
+                [out, x] = op.replace(')', '').replace('(', '').split(', ')
+                reg[out] = param[reg[x].v]
+            elif i == "addiu":
+                [a, b, c] = op.split(', ')
+                reg[a] = reg[b] + int(c, 16)
+            elif i == "addu":
+                [a, b, c] = op.split(', ')
+                reg[a] = reg[b] + reg[c]
+            elif i == "subu":
+                [a, b, c] = op.split(', ')
+                reg[a] = reg[b] - reg[c]
+            elif i == "xor":
+                [a, b, c] = op.split(', ')
+                reg[a] = reg[b] ^ reg[c]
+            elif i == "andi":
+                [a, b, c] = op.split(', ')
+                reg[a] = reg[b] & int(c, 16)
+            elif i == "sll":
+                [a, b, c] = op.split(', ')
+                reg[a] = reg[b] << int(c, 16)
+            elif i == "mult":
+                [a, b] = op.split(', ')
+                reg["hi"] = reg[a] * reg[b]
+                reg["lo"] = reg[a] * reg[b]
+            elif i == "mflo":
+                reg[op] = reg["hi"]
+            elif i == "bgez":
+                [a, _] = op.split(', ')
+                reg[a] = If(reg[a] > 0, reg[a], -reg[a])
+            elif i == "slt":
+                [a, b, c] = op.split(', ')
+                reg[a] = If(reg[b] <= reg[c], 1, 0)
+            elif i == "bnez":
+                [a, _] = op.split(', ')
+                if self.mustbe == True:
+                    z.add(reg[a] == 0)
+                elif self.mustbe == False:
+                    z.add(reg[a] != 0)
+                print(z)
+            elif i == "bne" or i == "beq":
+                [a, b, c] = op.split(', ')
+                if self.mustbe == True:
+                    z.add(reg[a] == reg[b])
+                elif self.mustbe == False:
+                    z.add(reg[a] != reg[b])
+                print(z)
+            else:
+                input("unknown instruction")
+```
+
+Because the function is a chain of calls to functions, I just keep running until the last function is met
+
+```python
+def do_next(insn_list, start = check_start):
+    print(hex(start))
+    nodes = split_to_nodes(dump_func(insn_list, start))
+    inspect_badjump(nodes)
+    next_func = None
+    z = Solver()
+    param = [BitVec(f"param_{i}", 8) for i in range(4)]
+    for n in nodes:
+        # print(n)
+        if n.next_func:
+            next_func = n.next_func
+            if hex(start) == "0x4013c8":
+                n.mustbe = False
+                n.condition(z, param)
+        else:
+            n.condition(z, param)
+    z.check()
+    m = z.model()
+    r = sorted([(d, m[d]) for d in m], key = lambda x: str(x[0]))
+    flag = list(map(lambda x: int(str(x[1])), r))
+    print(flag)
+    print()
+    if next_func:
+        return flag + do_next(insn_list, next_func)
+    return flag
+```
+And the correct answer is:
+
+```python
+answer = do_next(insn_list)
+print(answer)
+```
+
+You might have noticed already, the start function is hard-coded. This is our team mistake (including me). We thought that there is only ONE binary, I solve only one binary. When the CTF is over, I read the writeup and found out that the binary downloaded is different each time we connect to the server. I don't know if I have the correct general answer, but the script I wrote generate the correct answer for the binary I have. If something has to be changed, than I need to find the first check function automatically.
+
+> It seems that the function at `0x4013c8` has a different `mustbe` than other functions. I didn't remember, but I think I should recheck the `mustbe` value of each function.
+
+> I will update the qemu-mips running here with the output generated from our code in the future
+
+Our solution surpasses the runtime using ANGR and also not ad-hoc like other wirteups. By using symbolic execution, we can write a more general solution to the problem.
+
+
+Full code and binary is [here](https://github.com/nganhkhoa/ctf-writeup/blob/master/2020/de1ctf/code_runner/code_runner.py). Again, bad code warning.
+
+
+## What I miss from these writeups
+
+Symbolic Execution Engine needs a very good state manager, because each time a branch is made, the state (atleast) doubles. Hand crafted solver like these two writeups doesn't rely on a state manager because we assume a code path that must be chosen. In real life scenario, code path are undecidable and require the Engine to select the good path, remove the bad path. Most research on Symbolic Execution is about Exploration Technique because a good algorithm saves the memory and time running a solution.
+
+
+## References:
+
 To be updated
