@@ -40,7 +40,7 @@ projects: ["symbolic-execution"]
 8:  assert(x - y != 0)
 9: }
 ```
-In the above code, we want to find values of a and b such that the assertion is correct. There are many ways of finding a and b. A trail-and-error method may output the solution. Such method could be slow and not efficient. Another way to look at the problem is calculate the values of x and y at each code path.
+In the above code, we want to find values of a and b such that the assertion holds. There are many ways of finding a and b. A trial-and-error method may output the solution. Such method could be slow and inefficient. Another way to approach the problem is calculating the values of x and y at each code path.
 
 Line 1, $a, b \in Z$
 
@@ -52,23 +52,23 @@ Line 3, if $a \neq 0$, then $y = 3 + x = 3 + 1 = 4$.
 
 Line 5, if $b \neq 0$, the assertion is correct ($x = 1, y = 4, a \neq 0, b = 0$)
 
-Line 5, if $b = 0$, $x = 2 * (a + b)$. This yields assertion $2 * (a + b) - 4 \neq 0$. And pass the assertion only if $a + b \neq 2 | a \neq 0, b = 0$, which simplify to $a = 2, b = 0$.
+Line 5, if $b = 0$, $x = 2 * (a + b)$. This yields assertion $2 * (a + b) - 4 \neq 0$. And pass the assertion only if $a + b \neq 2 | a \neq 0, b = 0$, which simplifies to $a = 2, b = 0$.
 
-Here, we do not look at concrete values of a and b, instead we use a and b as math symbol and give them a range of value ($Z$) to start off with and reduce down after each if/else statement. We only know the valid valus of a and b after all statements are finished.
+Here, we do not look at concrete values of a and b, instead we use a and b as mathematical symbols and give them a range of value ($Z$) to start off with and reduce down after each if/else statement. We only know the valid values of a and b after all statements are finished.
 
 The using of a and b like mathematical symbols (x in "find x" exercises in highschool math) to find values satisfying condition(s) is the Symbolic part of "Symbolic Execution". Using these symbols and run through the code testing at each code path is Execution in "Symbolic Execution".
 
 # Symbolic Execution Engine
 
-A program that runs Symbolic Execution is called Symbolic Execution Engine. This program can run a given function or even a program and test whether the conditions are met. The program must use a kind of SMT Solver to create the Symbolic variables and later combines the constraints to give the possible value for the Symbolic variables. Because going through all code path is not feasible (path explosion) in general application these Engines must develop and use exploration technique(s) to limit the runtime memory.
+A program that runs Symbolic Execution is called Symbolic Execution Engine. This program can run a given function or even a program and test whether the conditions are met. The program must use a kind of SMT Solver to create the Symbolic variables and later combine the constraints to solve for the Symbolic variables. Because going through all code paths is not feasible (path explosion) in general applications, these engines must develop and use exploration technique(s) to limit the runtime memory.
 
 ## Simulator/Emulator
 
-One of the main components of the Engine is the Simulator/Emulator. The code/program to be proven must be run inside a simulator to assign Simbolic variables and build up the constraints. A good Simulator/Emulator will enable the Engine to inspect the variables at runtime and dynamically create Symbolic variables with their constraints.
+One of the main components of the Engine is the Simulator/Emulator. The code/program to be proven must be run inside a simulator which assigns values to Symbolic variables and builds up the constraints. A good Simulator/Emulator will enable the Engine to inspect the variables at runtime and dynamically create Symbolic variables along with their constraints.
 
-Simulator/Emulator are not limited to those run on binary and bytecode, they could be ones that execute on an AST or even a JIT engine. Symbolic Execution Engines only need to know the declarion of variables and the constraints arround those variables.
+Simulator/Emulator are not limited to those run on binary and bytecode, they could be ones that execute on an AST or even a JIT engine. Symbolic Execution Engines only need to know the declarion of variables and the constraints related to these variables.
 
-A simulator/emulator is not prefered in [KLEE](https://github.com/klee/klee), a LLVM-based Symbolic Execution Engine. KLEE builds the code with Symbolic variables and use them to solve the constraints at runtime.
+A simulator/emulator is not preferred in [KLEE](https://github.com/klee/klee), a LLVM-based Symbolic Execution Engine. KLEE builds the code with Symbolic variables and uses them to solve the constraints at runtime.
 
 ## SMT Solver
 
@@ -90,24 +90,24 @@ s.add(a + b == 6)
 s.check()
 s.model()
 ```
-`Int a` and `Int b` is the Symbolic variable, we slowly add constraints to the `Solver s` and output the model. Symbolic Execution Engine works just like this, with a state manager and an exploration technique.
+`Int a` and `Int b` is the Symbolic variables, we slowly add constraints to the `Solver s` and output the model. Symbolic Execution Engine works just like that, with a state manager and an exploration technique.
 
 
 ## Exploration Technique
 
-Symbolic Execution Engine must explore the code to build up the constraints. Each time a branch is found, the code path split into two or more.
+Symbolic Execution Engine must explore the code to build up the constraints. Each time a branch is found, the code path splits into two or more.
 
 > Consider if (a == X || b == Y || c == Z), how many branches do we have?
 
-To solve this problem many research focus on exploration technique to minize the memory needed for a successful run.
+To solve this problem, many researches focus on exploration techniques to minize the memory needed for a successful run.
 
-> I will update this after I have read about these technique :(
+> I will update this after I have read about these techniques :(
 
 ## An In-theory Perfect Symbolic Execution Engine
 
 With those 3 components, a perfect Symbolic Execution Engine relies on the perfection of those component.
 
-For binaries, the Simulator/Emulator must be able to work with different binary formats and architectures. Binary format are limited (PE32, PE32+, ELF, Mach-O), however architectures are varied, and to work efficiently, we need an Intermediate Representation (IR).
+For binaries, the Simulator/Emulator must be able to work with different binary formats and architectures. Binary format are limited (PE32, PE32+, ELF, Mach-O); however architectures may vary, and to work efficiently, we need an Intermediate Representation (IR).
 
 For programming languages, a unified language is required to work accross languages without writing custom Engine for each language.
 
@@ -124,7 +124,7 @@ I solved these challenges with my scripting skill. At that time, I did not know 
 
 I do not see any writeup on this problem, I don't know if this is a trivial one or a hard one. Here's my attempt to solve it using my scripting skill and now explain it using Symbolic Execution.
 
-This challenge has two files, a excutable binary and an unknown format binary file. The executable uses control flow flattening to obfuscate the control flow however we can track the state variable to know the next instruction. The executable read the unknown format binary file and execute the instruction inside that file.
+This challenge has two files, an excutable binary and an unknown format binary file. The executable uses control flow flattening to obfuscate the control flow; however, we can track the state variable to know the next instruction. The executable read the unknown format binary file and execute the instruction inside that file.
 
 > Pardon me, it's been too long so I don't remember how the binary exactly works, I might rework the challenge to give a more indepth explaination in future update. I just my solve script as a pointer, so it might be wrong.
 
@@ -237,7 +237,7 @@ A global variable will be used to select the next code:
     return 0
 ```
 
-After learning that compare and jump are used to divert the flow to the wrong path, I know that we need to find a way to find a satify path for each input. I add in a SMT solver, for each input, I create a Symbolic variable and for comparision, I add the constraints.
+After learning that compare and jump are used to divert the flow to the wrong path, I know that we need to find a way to find a satisfying path for each input. I add a SMT solver, for each input, I create a Symbolic variable and for comparision, I add the constraints.
 
 ```python
     # __init__
