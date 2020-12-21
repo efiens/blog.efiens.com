@@ -173,7 +173,7 @@ item:
     Professional Round: 
     - [cothan](../author/cothan), [quandoan](https://twitter.com/qdoan95) and @btmd 
 
-    participated in NSUCrypto 2016 and won the ****3rd**** place, It was our first Prize in Cryptography ever. 
+    participated in NSUCrypto 2016 and won the ****3rd**** place. It was our first Prize in Cryptography ever. 
   organization: Novosibirsk State University, Sobolev Institute of Mathematics, KU Leuven
   organization_url: https://nsucrypto.nsu.ru/archive/committees-sponsors-2016/
   title: International Olympiad in Cryptography NSUCRYPTO 2016
@@ -207,7 +207,7 @@ item:
   date_end: ""
   date_start: "2019-11-01"
   description: |-
-    Team *noobiens* including [luibo](../author/luibo), [pickaxe](../author/pickaxe), [midas](../author/midas) and [meganecon](../author/meganecon) joined the finalist after having-ranked **2nd** in the qualification round
+    Team *noobiens* including [luibo](../author/luibo), [pickaxe](../author/pickaxe), [midas](../author/midas) and [meganecon](../author/meganecon) joined the finals after having ranked **2nd** in the qualification round
 
     Team *LOSABLE* including [ngoctin](../author/ngoctin), [zoli4c](../author/zoli4c), [xxx](../author/xxx) and [retis](../author/retis) won **THIRD** prize in qualification round 
 
@@ -237,7 +237,7 @@ item:
 
 #### 2019
 - date_start: "2019-11-01"
-  description: "Team noobk got into the finals and-ranked **2nd**: [luibo](../author/luibo), [kynguyenngoc](../author/kynguyenngoc), [pickaxe](../author/pickaxe), [196](../author/196) and [ks75vl](../author/ks75vl)"
+  description: "Team noobk got into the finals and ranked **2nd**: [luibo](../author/luibo), [kynguyenngoc](../author/kynguyenngoc), [pickaxe](../author/pickaxe), [196](../author/196) and [ks75vl](../author/ks75vl)"
   organization: Viettel Cyber Security
   organization_url: https://matesctf.org/#!/about
   title: Mates CTF Season 3
@@ -253,7 +253,7 @@ item:
 
 #### 2017
 - date_start: "2017-11-01"
-  description: "Team Efiens got into the finals after 6 qualification rounds #**missing member**"
+  description: "Team Efiens got into the finals after 6 qualification rounds
   organization: Viettel Cyber Security
   organization_url: https://matesctf.org/#!/about
   title: Mates CTF Season 1
@@ -265,7 +265,7 @@ item:
 - certificate_url: 
   date_start: "2014-11-01"
   description: |- 
-    Team *BKIT.Respawn* [cothan](../author/cothan), @glider, @dekhi, @khanh won **SECOND** place in ASEAN Student Contest on Information Security
+    Team *BKIT.Respawn* including [cothan](../author/cothan), @glider, @dekhi, @khanh won **SECOND** place in ASEAN Student Contest on Information Security
   organization: VNISA
   organization_url: https://www.vnisa.org.vn/
   title: ASEAN Student Contest on Information Security 2014
@@ -274,7 +274,7 @@ item:
 - certificate_url: 
   date_start: "2014-10-01"
   description: |- 
-    Team *bkitsec*: [cothan](../author/cothan), @glider, @dekhi, @khanh 
+    Team *bkitsec* including [cothan](../author/cothan), @glider, @dekhi, @khanh 
     got into final round of the 1st WhiteHat Grand Prix 2014 in Ho Chi Minh City, Vietnam.
   organization: VNISA
   organization_url: https://www.vnisa.org.vn/
