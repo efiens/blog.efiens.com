@@ -27,7 +27,6 @@ interests:
 - Brain-teasers, ping pong, memes
 
 user_groups:
-- Advisors
 - Alumni
 ---
 
