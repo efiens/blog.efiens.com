@@ -253,7 +253,7 @@ item:
 
 #### 2017
 - date_start: "2017-11-01"
-  description: "Team Efiens got into the finals after 6 qualification rounds
+  description: "Team Efiens got into the finals after 6 qualification rounds"
   organization: Viettel Cyber Security
   organization_url: https://matesctf.org/#!/about
   title: Mates CTF Season 1
