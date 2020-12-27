@@ -28,6 +28,7 @@ interests:
 
 user_groups:
 - Advisors
+- Alumni
 ---
 
 Ky is a second-year Master student in the MPRI (Master Parisien de Recherche en Informatique) program, enrolled at the Ecole Normale Supérieure (ENS) Paris. Previously, Ky entered ENS from Licence 3 to complete the Bachelor's degree in an inter-university program with University Paris Diderot. Before ENS, he was an HCMUT alumnus at CSE faculty and joined Efiens in 2016.
