@@ -40,7 +40,7 @@ education:
     year: 2015-2019
 
 user_groups:
-- Advisors
+- Alumni
 ---
 
 Thanh (Lampard) joined Efiens in 2017 and currently is a PhD student at Ho Chi Minh city University of Technology and also working as an Applied Cryptography Researcher at Incognito Chain. His main foci include Blockchain protocols, Blockchain-based applications' security, Zero-knowledge proofs, Decentralized random number generation. 
