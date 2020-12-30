@@ -2,7 +2,7 @@
 name = "Earth"
 
 # Is theme light or dark?
-is_light = false
+light = false
 
 # Primary
 primary = "#707070"
