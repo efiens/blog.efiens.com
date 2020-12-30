@@ -16,6 +16,7 @@ subtitle = ""
   user_groups = ["Advisors",
                  "Core Members",
                  "Members",
+                 "Fresher",
                  "Alumni"]
 
 [design]
