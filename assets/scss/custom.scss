@@ -24,3 +24,7 @@ body {
 .dark .home-section {
 	background-color: #272935;
 }
+
+.dark .home-section:nth-of-type(2n) {
+	background: #152f40;
+}
