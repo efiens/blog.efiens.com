@@ -2,10 +2,10 @@
 name = "Cyberpunk"
 
 # Optional Google font URL
-google_fonts = "family=B612+Mono&family=B612:wght@400;700&family=Jura:wght@400;700"
+google_fonts = "family=B612+Mono&family=B612:wght@400;700&family=Jura:wght@400;700&family=Fira+Code"
 
 # Font families
 heading_font = "Jura"
 body_font = "B612"
 nav_font = "Jura"
-mono_font = "B612 Mono"
+mono_font = "Fira Code"
