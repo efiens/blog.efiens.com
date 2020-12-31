@@ -173,7 +173,7 @@ item:
     Professional Round: 
     - [cothan](../author/cothan), [quandoan](https://twitter.com/qdoan95) and @btmd 
 
-    participated in NSUCrypto 2016 and won the ****3rd**** place. It was our first Prize in Cryptography ever. 
+    participated in NSUCrypto 2016 and won the **THIRD** place. It was our first Prize in Cryptography ever. 
   organization: Novosibirsk State University, Sobolev Institute of Mathematics, KU Leuven
   organization_url: https://nsucrypto.nsu.ru/archive/committees-sponsors-2016/
   title: International Olympiad in Cryptography NSUCRYPTO 2016
@@ -189,7 +189,7 @@ item:
   date_end: ""
   date_start: "2020-11-01"
   description: |-
-    Team *NotEfiens* including [pickaxe](../author/pickaxe), [midas](../author/midas), [pcback](../author/pcback) and [doublevkay](../author/doublevkay)-ranked **2nd** in the finals and qualification round
+    Team *NotEfiens* including [pickaxe](../author/pickaxe), [midas](../author/midas), [pcback](../author/pcback) and [doublevkay](../author/doublevkay)-ranked **SECOND** in the finals and qualification round
 
     Team *Green Gao* including [\_.npn.\_](../author/_.npn._), [zoli4c](../author/zoli4c), [catafact](../author/catafact) and [frost](../author/frost)
     won **CONSOLATION** prize in qualification round
@@ -207,7 +207,7 @@ item:
   date_end: ""
   date_start: "2019-11-01"
   description: |-
-    Team *noobiens* including [luibo](../author/luibo), [pickaxe](../author/pickaxe), [midas](../author/midas) and [meganecon](../author/meganecon) joined the finals after having ranked **2nd** in the qualification round
+    Team *noobiens* including [luibo](../author/luibo), [pickaxe](../author/pickaxe), [midas](../author/midas) and [meganecon](../author/meganecon) joined the finals after having ranked **SECOND** in the qualification round
 
     Team *LOSABLE* including [ngoctin](../author/ngoctin), [zoli4c](../author/zoli4c), [xxx](../author/xxx) and [retis](../author/retis) won **THIRD** prize in qualification round 
 
@@ -237,7 +237,7 @@ item:
 
 #### 2019
 - date_start: "2019-11-01"
-  description: "Team noobk got into the finals and ranked **2nd**: [luibo](../author/luibo), [kynguyenngoc](../author/kynguyenngoc), [pickaxe](../author/pickaxe), [196](../author/196) and [ks75vl](../author/ks75vl)"
+  description: "Team noobk got into the finals and ranked **SECOND**: [luibo](../author/luibo), [kynguyenngoc](../author/kynguyenngoc), [pickaxe](../author/pickaxe), [196](../author/196) and [ks75vl](../author/ks75vl)"
   organization: Viettel Cyber Security
   organization_url: https://matesctf.org/#!/about
   title: Mates CTF Season 3
