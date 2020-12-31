@@ -2,7 +2,7 @@
 name = "Starter Blog"
 
 # Is theme light or dark?
-light = true
+light = false
 
 # Primary
 primary = "#2962ff"
@@ -21,4 +21,4 @@ home_section_even = "#99AAB5"
   background = "#23272A"
   home_section_odd = "#2C2F33"
   home_section_even = "#212121"
-  menu_primary = "#090a0b"
+  menu_primary = "#212545"
