@@ -27,7 +27,9 @@ image:
 #   Otherwise, set `projects = []`.
 projects: []
 ---
-All files can be found [here](https://github.com/LKMDang/Short-CTF-Writeups/tree/master/tetctf2021)
+*All files can be found [here](https://github.com/LKMDang/Short-CTF-Writeups/tree/master/tetctf2021)*.
+
+As always, **TetCTF** is a great event to start the year with. This year, I managed to first-blood (and we Efiens are being the only Vietnamese team that can solve) the 3 phenomenal heap pwning challenges. Here are my writeups for them.
 
 # cache_v1
 ## Introduction
