@@ -18,7 +18,7 @@ organizations:
   url: ""
 
 # Short bio (displayed in user profile at end of posts)
-bio: Just a memer playing CTF.
+bio: CTF player. Reverser. Pwner. Memer.
 
 # List each interest with a dash
 #interests:
