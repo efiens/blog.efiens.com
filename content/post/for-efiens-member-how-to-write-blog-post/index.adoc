@@ -88,7 +88,8 @@ If your name has not appeared as a folder in `content/authors/`, then:
 - Enable yourself as superuser. `superuser: true`. We value all members who contribute to Efiens's blog. And it looks nicer in the page too. 
 - In `user_groups`, set one of the 3 following, see available user groups at `content/team/people.md`:
 
-** *Members*: You've passed the qualify round
+** *Fresher*: If you've just joined the team. 
+** *Members*: You've passed the internal qualify round
 ** *Core Members*: Your shirts have `sudo`
 ** *Advisors*: Beside CTF activity, you help manage the club.
 

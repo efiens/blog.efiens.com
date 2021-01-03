@@ -95,9 +95,11 @@ So the flow to solve this challenge is to make call :
 * decrypt_flag parameter must be obj.key, obj.key value is 0xed0cc64a from return value calculate_key
 * Then the flag is automatically decrypted. Need to grab it out.
 
-Firstly, Init the binary
-Secondly, grab the address of decrypt_flag and execute it
-Thirdly, grab the flag from memory and print it out.
+1. Init the binary
+
+2. Grab the address of decrypt_flag and execute it
+
+3. Grab the flag from memory and print it out.
 
 See something weird, the framework handle PIE nicely. Lovely. The address I input is taken directly from Radare2.
 
@@ -131,7 +133,9 @@ Pros:
 Cons:
 
 * Can't execute individual instruction
-* I'm kinda happy that I don't have to run into the same problem over and over again.
+
+
+I'm kinda happy that I don't have to run into the same problem over and over again.
 
 
 Thank you for reading.
