@@ -2,8 +2,8 @@
 # Documentation: https://wowchemy.com/docs/managing-content/
 
 title: "Glibc 2.31 Heap + Seccomp Exploitation Technique using ROP"
-subtitle: "My technique of solving glibc 2.31 heap challenges with seccomp"
-summary: ""
+subtitle: ""
+summary: "My technique of solving glibc 2.31 heap challenges with seccomp"
 authors: [midas]
 tags: []
 categories: []
