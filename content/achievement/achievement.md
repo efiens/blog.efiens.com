@@ -236,7 +236,7 @@ item:
 ### ISITDTU CTF
 
 #### 2020
-- date_start: "2019-12-13"
+- date_start: "2020-12-13"
   description: "Team *efiens* got into the finals and ranked **SECOND**: [midas](../author/midas), [pcback](../author/pcback), [Catafact](../author/Catafact), [MN](../author/MN) and [zoli4c](../author/zoli4c)"
   organization: Duy Tan University
   organization_url: https://www.facebook.com/isitdtu
