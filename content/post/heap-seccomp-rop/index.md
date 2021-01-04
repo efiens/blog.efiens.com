@@ -62,7 +62,7 @@ objdump -D -Mintel ./libc-2.31.so | grep -B 1 ret | grep -A 1 syscall
 ``` 
 
 The next 2 gadgets are crucial for this technique, the first one is at `call_gadget = l.address + 0x154930`:
-```asm
+```x86asm
 mov     rdx, [rdi+8]
 mov     [rsp], rax
 call    qword ptr [rdx+0x20]
@@ -71,7 +71,7 @@ call    qword ptr [rdx+0x20]
 This gadget is what we will overwrite `__free_hook` with. It allows us to call an arbitrary function through `rdx`, if we control `rdi`, which is exactly the parameter that will be passed to `free()`. 
 
 The next gadget is inside libc function `setcontext()`, at offset `setcontext_gadget = l.address + 0x580DD`:
-```asm
+```x86asm
 mov     rsp, [rdx+0A0h]
 mov     rbx, [rdx+80h]
 mov     rbp, [rdx+78h]
