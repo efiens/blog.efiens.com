@@ -233,6 +233,34 @@ item:
   title: ASEAN Student Contest on Information Security 2018
   url: https://sv-attt.vnisa.org.vn/
 
+### ISITDTU CTF
+
+#### 2020
+- date_start: "2019-12-13"
+  description: "Team *efiens* got into the finals and ranked **SECOND**: [midas](../author/midas), [pcback](../author/pcback), [Catafact](../author/Catafact), [MN](../author/MN) and [zoli4c](../author/zoli4c)"
+  organization: Duy Tan University
+  organization_url: https://www.facebook.com/isitdtu
+  title: ISITDTU CTF 2020
+  url: https://ctftime.org/event/1210
+
+### TetCTF
+
+#### 2021
+- date_start: "2021-01-01"
+  description: "Team *efiens* joined the online CTF and ranked **FIRST** in Vietnamese, **THIRD** worldwide"
+  organization: Hack 'Em All
+  organization_url: https://www.facebook.com/hackemall.live
+  title: TetCTF 2021
+  url: https://ctftime.org/event/1213
+
+#### 2020
+- date_start: "2020-01-01"
+  description: "Team *efiens* joined the online CTF and ranked **FIRST** in Vietnamese, **FIRST** worldwide"
+  organization: Hack 'Em All
+  organization_url: https://www.facebook.com/hackemall.live
+  title: TetCTF 2020
+  url: https://ctftime.org/event/955
+
 ### MatesCTF
 
 #### 2019
