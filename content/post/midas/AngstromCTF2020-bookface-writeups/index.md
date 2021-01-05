@@ -1,9 +1,9 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "[AngstromCTF2020] bookface (pwn) Writeups"
+title: "[AngstromCTF2020] bookface writeups"
 subtitle: ""
-summary: ""
+summary: "Writeups for AngstromCTF2020 bookface challenge"
 authors: [midas]
 tags: []
 categories: []
@@ -28,7 +28,7 @@ image:
 projects: []
 ---
 
-All files can be found [here](https://github.com/LKMDang/Short-CTF-Writeups/tree/master/angstromctf2020_bookface)
+All files can be found [here](https://github.com/lkmidas/Short-CTF-Writeups/tree/master/angstromctf2020_bookface)
 
 
 - Given files: `bookface.tar.gz`.  

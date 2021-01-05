@@ -1,9 +1,9 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "[ASCIS2020 Final] RWE Writeups"
+title: "[ASCIS2020 Finals] RWE writeups"
 subtitle: ""
-summary: ""
+summary: "Writeups for ASCIS/SVATTT2020 Finals RWE challenges"
 authors: [midas]
 tags: []
 categories: []
@@ -28,7 +28,7 @@ image:
 projects: []
 ---
 
-All files can be found [here](https://github.com/LKMDang/Short-CTF-Writeups/tree/master/ascis2020final_RWE).
+All files can be found [here](https://github.com/lkmidas/Short-CTF-Writeups/tree/master/ascis2020final_RWE).
 
 # RWE (RE)
 - Given files: `rwe`, `description`.

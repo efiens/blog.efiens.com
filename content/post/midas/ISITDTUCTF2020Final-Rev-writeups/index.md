@@ -1,7 +1,7 @@
 ---
 # Documentation: https://wowchemy.com/docs/managing-content/
 
-title: "[ISITDTUCTF2020] Keylogger, Game, Maze writeups"
+title: "[ISITDTUCTF2020 Finals] Keylogger, Game, Maze writeups"
 subtitle: ""
 summary: "Writeups for ISITDTUCTF 2020 Finals reversing challenges"
 authors: [midas]
@@ -27,7 +27,7 @@ image:
 #   Otherwise, set `projects = []`.
 projects: []
 ---
-All files can be found [here](https://github.com/LKMDang/Short-CTF-Writeups/tree/master/isitdtuctf2020final)
+All files can be found [here](https://github.com/lkmidas/Short-CTF-Writeups/tree/master/isitdtuctf2020final)
 
 # Keylogger
 

@@ -168,7 +168,7 @@ image::termtosvg.svg[]
 == ReMe - Antidebug
 
 
-Not long ago I wrote a challenge Introduction to SMT in Efiens Round 2 CTF. You can see the writeup here. The download link also in https://github.com/LKMDang/EfiensCTF_Round2/tree/master/RE_SMT[midas's github]. 
+Not long ago I wrote a challenge Introduction to SMT in Efiens Round 2 CTF. You can see the writeup here. The download link also in https://github.com/lkmidas/EfiensCTF_Round2/tree/master/RE_SMT[midas's github]. 
 
 image::reme.gif[Wow, this time multiple comparisons but not many branches. `afgw reme.gif`]
 

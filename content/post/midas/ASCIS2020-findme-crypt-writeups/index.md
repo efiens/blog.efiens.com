@@ -1,9 +1,9 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "[ASCIS2020 Quals] Findme, Crypt (RE) Writeups"
+title: "[ASCIS2020 Quals] Findme, Crypt writeups"
 subtitle: ""
-summary: ""
+summary: "Writeups for ASCIS/SVATTT2020 Quals reversing challenges"
 authors: [midas]
 tags: []
 categories: []
@@ -28,7 +28,7 @@ image:
 projects: []
 ---
 
-All files can be found [here](https://github.com/LKMDang/Short-CTF-Writeups/tree/master/ascis2020_re).
+All files can be found [here](https://github.com/lkmidas/Short-CTF-Writeups/tree/master/ascis2020_re).
 
 # FINDME
 - Given files: `findme.exe`.

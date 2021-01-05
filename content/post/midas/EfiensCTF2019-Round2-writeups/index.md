@@ -32,7 +32,7 @@ projects: []
 
 ## Pwn: lottery
 
-Source: https://github.com/LKMDang/EfiensCTF_Round2/tree/master/pwn_lottery
+Source: https://github.com/lkmidas/EfiensCTF_Round2/tree/master/pwn_lottery
 
 This first challenge is pretty simple, it gives us a program that secretly generates 2 random integers, ask for the player's name, print out that name and then ask for a number, if our input number is equal to the sum of the 2 random numbers generated earlier, we get the flag.
 
@@ -44,7 +44,7 @@ Looking at the source code, I realized that there is a `format string` bug becau
 
 ## Pwn: Cuộc đời bạn màu gì?
 
-Source: https://github.com/LKMDang/EfiensCTF_Round2/tree/master/pwn_life
+Source: https://github.com/lkmidas/EfiensCTF_Round2/tree/master/pwn_life
 
 This challenge is also pretty simple, we are given a Python program that will randomly choose one of the 6 colors, ask for your name and then print out that color as the color of your life. There is no flag in the source code this time, so our goal will be getting a shell here.
 
@@ -58,7 +58,7 @@ With that figured out, I could just use this to execute the system function in t
 
 ## Pwn: heap
 
-Source: https://github.com/LKMDang/EfiensCTF_Round2/tree/master/pwn_heap
+Source: https://github.com/lkmidas/EfiensCTF_Round2/tree/master/pwn_heap
 
 Checksec: ![](heap1.png)
 
@@ -70,13 +70,13 @@ First of all, I ran the program and tried several inputs, the outputs were prett
 
 Looking at the output for a while, I realized that with the address of the buffer given by the debug lines, I could calculate the address where the return address lies. And also, this program doesn't have NX, so I could inject a shellcode in my input and execute it on the stack, its address can also be calculated based on the address of the buffer. I had all the required information then, with the format string bug, I could overwrite the return address with the address of the shellcode, and by that, I could get a shell (the addresses on the stack are pretty large so I had to overwrite the return address one byte by one byte separately).
 
-Exploit code: https://github.com/LKMDang/EfiensCTF_Round2/blob/master/pwn_heap/heapexploit.py
+Exploit code: https://github.com/lkmidas/EfiensCTF_Round2/blob/master/pwn_heap/heapexploit.py
 
 `efiens{the_art_of_formatstring}`
 
 ## Pwn: calculator
 
-Source: https://github.com/LKMDang/EfiensCTF_Round2/tree/master/pwn_calculator
+Source: https://github.com/lkmidas/EfiensCTF_Round2/tree/master/pwn_calculator
 
 Checksec:
 
@@ -98,13 +98,13 @@ The system has ASLR, so I had to leak the base of libc first. I did it by overwr
 
 Wrong!!! No shell for me! I struggled for quite a while trying to figure out what was the problem here. Even though my solution seemed very logical, it didn't go the way I wanted. Later, I figured out that the problem here was that the input was taken as `long`, which has the upper bound of  2^31 -  1, which is much smaller than the addresses on `libc`, so I couldn't directly input it that way. With the problem figured out, the solution was pretty simple: just take the correspondent negative value of the addresses by substracting it with 2^32. And finally, the shell was mine.
 
-Exploit code: https://github.com/LKMDang/EfiensCTF_Round2/blob/master/pwn_calculator/exploit.py
+Exploit code: https://github.com/lkmidas/EfiensCTF_Round2/blob/master/pwn_calculator/exploit.py
 
 `efiens{ret2libc_is_sooo_fun}`
 
 ## Pwn: PhoneBook
 
-Source: https://github.com/LKMDang/EfiensCTF_Round2/tree/master/pwn_PhoneBook
+Source: https://github.com/lkmidas/EfiensCTF_Round2/tree/master/pwn_PhoneBook
 
 Checksec: ![](phonebook1.png)
 
@@ -118,7 +118,7 @@ First of all, before the second hint was given, I had already realized that when
 
 With the latter hint revealed, I started to look at `main` (because the prompt happens in `main`). Reading the instruction, I realized that the first parameter of `readString` - which is the address of the buffer - is taken as `rbp - 0x10`, and that value is modifiable. After handler returns to `main`, its frame pointer is popped, so then I could set the rbp in main to anywhere I want. After prompting for input, `strcmp` got called, so if I could overwrite the address at `strcmp@GOT` to getFlag's address, it will be called instead. Overwriting `GOT` became much more simple now, the only thing I needed to do was set the handler's frame pointer to `strcmp@GOT + 0x10` and input the prompt with `getFlag` address. And with that, I got the flag.
 
-Exploit code: https://github.com/LKMDang/EfiensCTF_Round2/blob/master/pwn_PhoneBook/exploit.py
+Exploit code: https://github.com/lkmidas/EfiensCTF_Round2/blob/master/pwn_PhoneBook/exploit.py
 
 `efiens{master_of_stack_based_exploit}`
 
@@ -127,7 +127,7 @@ Exploit code: https://github.com/LKMDang/EfiensCTF_Round2/blob/master/pwn_PhoneB
 
 ## RE: xor
 
-Binary: https://github.com/LKMDang/EfiensCTF_Round2/tree/master/RE_xor
+Binary: https://github.com/lkmidas/EfiensCTF_Round2/tree/master/RE_xor
 
 We continue to our first Reverse Engineering challenge. In this challenge, we are given a program that take a key as the input, does something with it (maybe does some xor operator as the name suggests) and if our key is correct, we get the flag.
 
@@ -139,7 +139,7 @@ The solution is extremely simple though. First, I opened the binary with IDA and
 ## RE: tricky
 
 
-Binary: https://github.com/LKMDang/EfiensCTF_Round2/tree/master/RE_tricky
+Binary: https://github.com/lkmidas/EfiensCTF_Round2/tree/master/RE_tricky
 
 This challenge is a pretty nice one. The program asks us for a password, and if our password is correct, we will get the first half of the flag. It then asks us for the second password and rewards us with the second half if we get it right. The program also has an anti-debug mechanic (but bypassing it was pretty easy though [1]).
 
@@ -150,13 +150,13 @@ First of all, I opened the binary with IDA and looked at the algorithm that chec
 The next half was where it seemed to be tricky because there was some Virtual Machine action going on. But before that, our password must satisfy some conditions first. Again, `(strlen(s) & 3 != 1)`, that means the length must be divisible by 4. Then,  `(strlen(s) - 12 > 3 != 1)`, another tricky part, my first conclusion was that the length can only be 4, 8 or 12, but when debugging, the length of 4 and 8 didn't seem to work. I then realized that it was because strlen returns an `unsigned int`, so when strlen(s) - 12 equals to a negative value, it actually gets rolled up to a very large value and that value for sure greater than 3, so only the length of 12 works. Next, I tried to read through the VM part but couldn't understand most of them, so I tried to run the binary and input a random length-12 password and see what happens. And how convenient! It printed out all the opcodes it used and all I did was to follow them one by one (they were really simple) and I got the second password: `14ae5ee7a285`. With those 2 passwords in hand, I got the flag.
 
 
-Script: https://github.com/LKMDang/EfiensCTF_Round2/blob/master/RE_tricky/trickysolve.py
+Script: https://github.com/lkmidas/EfiensCTF_Round2/blob/master/RE_tricky/trickysolve.py
 
 `efiens{th15_15_A_veRy_3a5y_VM}`
 
 ## RE: SMT
 
-Binary: https://github.com/LKMDang/EfiensCTF_Round2/tree/master/RE_SMT
+Binary: https://github.com/lkmidas/EfiensCTF_Round2/tree/master/RE_SMT
 
 As challenge's description says, this is an introduction to SMT. At first, I didn't know what SMT is but this is a RE challenge so I just proceeded to open it in IDA anyway, and what I got was a mess with a bunch of variables and formulars. It was very intimidating! But then after some googling and research, I found out that this challenge is more intimidating than it is hard.
 
@@ -164,7 +164,7 @@ There is a pretty funny part about this challenge is that if you run the binary,
 
 Reading the IDA pseudocode, I realized that our input needs to be of length 168, then the formulars are just a bunch of logical operators that operate on every single bytes of our input. After some researchs, I learned that SMT problems can be solved with z3 solver [2], so all I did was copy all of the formulars from IDA pseudocode to my python script, used some regex to modify them and after that ran the code to get the flag (I don't know if there are any other ways to quickly transfer those formulars into python but this works so I will just go with it for this specific challenge).
 
-Script: https://github.com/LKMDang/EfiensCTF_Round2/blob/master/RE_SMT/SMTsolve.py
+Script: https://github.com/lkmidas/EfiensCTF_Round2/blob/master/RE_SMT/SMTsolve.py
 
 
 `efiens{Do_you_know_SMT_Solver_is_computer_science_wet_dream?}`
@@ -173,7 +173,7 @@ Script: https://github.com/LKMDang/EfiensCTF_Round2/blob/master/RE_SMT/SMTsolve.
 ## RE: hidden
 
 
-Binary: https://github.com/LKMDang/EfiensCTF_Round2/tree/master/RE_hidden
+Binary: https://github.com/lkmidas/EfiensCTF_Round2/tree/master/RE_hidden
 
 This is our final RE challenge, and it is very very interesting. As the title suggests, this challenge's flag is hidden extremely well, and I don't think I could ever solve this challenge without some hint from its author @ks75vl.
 
@@ -192,7 +192,7 @@ I then asked for the next hint and it was "the flag is near there, somewhere in 
 ## Web: echo
 
 
-Source: https://github.com/LKMDang/EfiensCTF_Round2/blob/master/web_echo/index.php
+Source: https://github.com/lkmidas/EfiensCTF_Round2/blob/master/web_echo/index.php
 
 Next up are the web challenges, starting with a php challenge. The web takes in one GET parameter 'echo', and if our input satisfies some conditions, it will be eval and echo out. Those conditions are: it must not contain php's internal functions, some more functions and some special characters, so we are pretty much limited to using the user-defined function `f10eq()` which is a pretty useful one that scans the current directory.
 
@@ -232,7 +232,7 @@ I didn't know what kind of restriction the web used, so I just tried all the dif
 
 ![](fashe.png)
 
-Source: https://github.com/LKMDang/EfiensCTF_Round2/blob/master/web_fashe/index.html
+Source: https://github.com/lkmidas/EfiensCTF_Round2/blob/master/web_fashe/index.html
 
 Hint: "SQL Injection", "not related to crypto".
 
@@ -242,7 +242,7 @@ Reading the source code, I saw that the coupon for the 2nd product is already in
 
 Therefore, I tried Blind SQL injection to find the 3rd coupon. What I did was to input the productID as `" OR BINARY CODE LIKE "%x% `where x is a character from `a-z, A-Z, 0-9` to find all the possible characters in the coupon (if I get a "recheck your code" warning, that means the character is correct, it is incorrect otherwise). After that, I did it again with` " OR BINARY CODE LIKE "x%` and tried with all the possible x discovered before, if a character is correct, I moved onto the next one consecutively (I didn't know how to write a script to do it automatically so I did it manually which was pretty time-consuming, but that worked anyway). The coupon was `hAApY_A97jM_9MpGt` .
 
-This is the exploit script that I wrote several days after with some help: https://github.com/LKMDang/EfiensCTF_Round2/blob/master/web_fashe/exploit.py
+This is the exploit script that I wrote several days after with some help: https://github.com/lkmidas/EfiensCTF_Round2/blob/master/web_fashe/exploit.py
 
 
 `efiens{n1c3_tRY_0n_bL1nD_SQLi___h4ppY_n3W_y34R__!}`
@@ -269,7 +269,7 @@ And then I submitted the zip file and got the flag.
 
 ## Crypto: 46esaB
 
-Given file: https://github.com/LKMDang/EfiensCTF_Round2/blob/master/crypto_46esaB/S0meTh1ng.txt
+Given file: https://github.com/lkmidas/EfiensCTF_Round2/blob/master/crypto_46esaB/S0meTh1ng.txt
 
 Next up, we have some cryptography challenges. First of all, I have to say that this is not my strong part and I'm not that good at math, so most of these solutions are just 20% math, 30% help from others and 50% google. But I did solve them anyway so I just want to write something about them.
 
@@ -277,26 +277,26 @@ With that said, we begin with our first challenge. This challenge is maybe the o
 
 Looking at the file's content and the title of the challenge (which is base64 backwards), I recognized this was base64 encoded, so I tried to decode it, but decoding it once or twice just gave me some more base64 encoded text. Therefore, I simply used a loop to decode it multiple times until it has the form of a flag.
 
-Script: https://github.com/LKMDang/EfiensCTF_Round2/blob/master/crypto_46esaB/46esaBsolve.py
+Script: https://github.com/lkmidas/EfiensCTF_Round2/blob/master/crypto_46esaB/46esaBsolve.py
 
 
 `efiens{196}`
 
 ## Crypto: RSA Return
 
-Given file: https://github.com/LKMDang/EfiensCTF_Round2/blob/master/crypto_RSAreturn/RSA.txt
+Given file: https://github.com/lkmidas/EfiensCTF_Round2/blob/master/crypto_RSAreturn/RSA.txt
 
 Hint: Wiener attack.
 
 Looking at the given file, I could see that this is a RSA encryption with a very large e value, so I didn't know what to do at first. But then the hint came, and things became much much easier. I did some googling and found a lot of Wiener attack script, but I ended up choosing this sage script [5] because I thought it was the simplest one. All I did was to modify it a little bit and I'm done.
 
-Script: https://github.com/LKMDang/EfiensCTF_Round2/blob/master/crypto_RSAreturn/RSAreturnsolve.sage
+Script: https://github.com/lkmidas/EfiensCTF_Round2/blob/master/crypto_RSAreturn/RSAreturnsolve.sage
 
 `efiens{2_plUs_2_1s_4_m1nUs_1_th4t_3_qu1ck_m4th}`
 
 ## Crypto: Seem Easy
 
-Given files: https://github.com/LKMDang/EfiensCTF_Round2/tree/master/crypto_SeemEasy
+Given files: https://github.com/lkmidas/EfiensCTF_Round2/tree/master/crypto_SeemEasy
 
 Hint: modular sqrt
 
@@ -304,19 +304,19 @@ This challenge is the one that I did NOT solved it myself. This whole solution w
 
 We are given a python file named wtf that looks like an encryption file and a log file. Reading the python file closely, we can see that this is again a RSA encryption on `flag^2`, with the private key and cipher saved in the log file, and t being the product of 2 primes. So what he did was to decrypt the RSA, use Tonelli-Shank to calculate the modular sqrt and then use CRT to retrieve the flag. I then re-implemented it in sage so that I could use the built-in modular sqrt and CRT functions without implementing them.
 
-Script: https://github.com/LKMDang/EfiensCTF_Round2/blob/master/crypto_SeemEasy/seemeasy_solve.sage
+Script: https://github.com/lkmidas/EfiensCTF_Round2/blob/master/crypto_SeemEasy/seemeasy_solve.sage
 
 `efiens{RSA_shared_bit_never_get_old!_Now_you_have_known_RNG_is_very_complicated_to_make_it_right}`
 
 ## Crypto: NTRU
 
-Given files: https://github.com/LKMDang/EfiensCTF_Round2/blob/master/crypto_NTRU/NTRU.zip
+Given files: https://github.com/lkmidas/EfiensCTF_Round2/blob/master/crypto_NTRU/NTRU.zip
 
 Hint: LLL Reduction algorithm.
 
 This challenge for me was just pure Google. I first tried to read some documents about NTRU and didn't understand any of them (again my math is not that great). So all I did was to try googling the keyword "**NTRU LLL attack**" and I found this write-ups [6] which has the whole solution script for this exact type of attack (later on, I was told that LLL is just an algorithm, not an attack, the attack itself was LLL-based). Therefore, even though this challenge was considered hard, it was just free for me.
 
-Script: https://github.com/LKMDang/EfiensCTF_Round2/blob/master/crypto_NTRU/solve.sage
+Script: https://github.com/lkmidas/EfiensCTF_Round2/blob/master/crypto_NTRU/solve.sage
 
 `efiens{._.B3y0unD_G0dL1k3._.}`
 
@@ -324,7 +324,7 @@ Script: https://github.com/LKMDang/EfiensCTF_Round2/blob/master/crypto_NTRU/solv
 ## Misc: Spammmmm 
 
 
-Given file: https://github.com/LKMDang/EfiensCTF_Round2/blob/master/misc_Spammmmm/Spammmmm.txt
+Given file: https://github.com/lkmidas/EfiensCTF_Round2/blob/master/misc_Spammmmm/Spammmmm.txt
 
 We have come to our very last challenge. I didn't intend to write about this one because it is just kinda silly, but I also think that it is pretty hilarious so I will just write some lines about it.
 

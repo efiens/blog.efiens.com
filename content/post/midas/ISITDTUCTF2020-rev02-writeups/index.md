@@ -1,9 +1,9 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "[ISITDTUCTF2020] rev02 (RE) writeups"
+title: "[ISITDTUCTF2020 Quals] rev02 writeups"
 subtitle: ""
-summary: ""
+summary: "Writeups for ISITDTU2020 Quals rev02 challenge"
 authors: [midas]
 tags: []
 categories: []
@@ -28,7 +28,7 @@ image:
 projects: []
 ---
 
-All files can be found [here](https://github.com/LKMDang/Short-CTF-Writeups/tree/master/isitdtuctf2020_rev02)
+All files can be found [here](https://github.com/lkmidas/Short-CTF-Writeups/tree/master/isitdtuctf2020_rev02)
 
 - Given files: `rev02.nes`.
 - The given file is a **NES ROM** file, which is a game ROM for the NES 8-bit video game console. The NES is based on the **6502 microcontroller** with a custom video controller called PPU. Therefore, this is essentially a 6502 assembly reverse engineering challenge.

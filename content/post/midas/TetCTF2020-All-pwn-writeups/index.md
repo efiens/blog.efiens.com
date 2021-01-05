@@ -1,9 +1,9 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "[TetCTF2020] All Pwn Writeups"
+title: "[TetCTF2020] All pwn writeups"
 subtitle: ""
-summary: ""
+summary: "Writeups for TetCTF2020 pwn challenges"
 authors: [midas]
 tags: []
 categories: []
@@ -28,7 +28,7 @@ image:
 projects: []
 ---
 
-All files can be found [here](https://github.com/LKMDang/Short-CTF-Writeups/tree/master/tetctf2020_all_pwn).
+All files can be found [here](https://github.com/lkmidas/Short-CTF-Writeups/tree/master/tetctf2020_all_pwn).
 
 # OANHBOT
 - Given files: `oanhbot`, `libc-2.23.so`.
