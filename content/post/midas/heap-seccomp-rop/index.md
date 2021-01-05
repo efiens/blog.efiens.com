@@ -159,6 +159,6 @@ After allocating this `payload` and overwriting `__free_hook` with the `call_gad
 
 ## Examples
 Here are some writeups to challenges that me and my team solved using this technique:
-- [TetCTF2021 - cache_v1 & cache_v2](https://blog.efiens.com/post/tetctf2021-pwn-writeups/) by `@midas` (me).
+- [TetCTF2021 - cache_v1 & cache_v2](https://blog.efiens.com/post/midas/tetctf2021-pwn-writeups/) by `@midas` (me).
 - [ASCIS/SVATTT2020 Finals - Secret Keeper](https://blog.efiens.com/post/ascis2020-final-secret-keeper/) by `@pickaxe`
 
