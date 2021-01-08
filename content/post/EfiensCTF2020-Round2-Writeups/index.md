@@ -263,7 +263,7 @@ for m in messages:
 print(long_to_bytes(int(res[::-1], 2)))
 ```
 
-It is possible to use python to automate the server interaction, which is implemented in [ecbc_sol.py](./crypto/ecbc/ecbc_sol.py)
+It is possible to use python to automate the server interaction, which is implemented in [ecbc_sol.py](https://github.com/mkbui/EfiensCTF-Writeup/blob/main/round2/crypto/ecbc/ecbc_sol.py)
 
 Flag: `EFIENSCTF{Now_you_know_ECB_is_weak_;)_}`
 
@@ -538,7 +538,7 @@ The column name with the flag should be the last listed column, `s3rcur3_fl4g`.
 
 Flag: `efiensctf{Nice_try._You_are_also_talented_rapper!}`
 
-For an automated script to perform the bypass and request, see [rapper_sol.py](./web/rapper_hub/rapper_sol.py)
+For an automated script to perform the bypass and request, see [rapper_sol.py](https://github.com/mkbui/EfiensCTF-Writeup/blob/main/round2/web/rapper_hub/rapper_sol.py)
 
 # Trust bank is back
 
@@ -812,7 +812,7 @@ def luck(money):
 
 The program removes any sign notation as well as making sure our input is a valid Python `int()` init argument, and contains only ASCII characters. It also makes sure `int(bet)` is not larger than our current asset. 
 
-As we can quickly see here, the intended exploit should be between the `int()` and `get_value()` functions. The coder uses `int()` in checking constraint, but uses `get_value()` in converting our input into the amount of money. And as we can see, `get_value()` naively calculate the ASCII difference from `'0'` of each digit in our input, which could get us an unexpectedly high result if our digits contain any non-numeric character with ASCII value larger than `'0'`. Furthermore, this character should be accepted and convertable by `int()` (the value should also be smaller than 69). Attempts with stuffs like `'0.0000001'` or `'0x0000001'` is not accepted by `int()`, so I abandon the problem for a while. Briefly after, the challenge author releases a hint showing a link to Python's document about `int` function. I had visited this link before, but had not pinpoint the exploitable part. However, upon the second visit, I paid more attention to the details in the documentation. 
+As we can quickly see here, the intended exploit should be between the `int()` and `get_value()` functions. The coder uses `int()` in checking constraint, but uses `get_value()` in converting our input into the amount of money. And as we can see, `get_value()` naively calculates the ASCII difference from `'0'` of each digit in our input, which could get us an unexpectedly high result if our digits contain any non-numeric character with ASCII value larger than `'0'`. Furthermore, this character should be accepted and convertable by `int()` (the value should also be smaller than 69). Attempts with stuffs like `'0.0000001'` or `'0x0000001'` is not accepted by `int()`, so I abandon the problem for a while. Briefly after, the challenge author releases a hint showing a link to Python's document about `int` function. I had visited this link before, but had not pinpoint the exploitable part. However, upon the second visit, I paid more attention to the details in the documentation. 
 
 First we should notice that in the source, the version specification is indicated as `#!/usr/bin/env python3.6`. This tells us some hint about this version, so I paid attention on changes made on `int()` documented. Here, we can see:
 
