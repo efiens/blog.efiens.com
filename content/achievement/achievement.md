@@ -265,7 +265,7 @@ item:
 
 #### 2019
 - date_start: "2019-11-01"
-  description: "Team noobk got into the finals and ranked **SECOND**: [luibo](../author/luibo), [kynguyenngoc](../author/kynguyenngoc), [pickaxe](../author/pickaxe), [196](../author/196) and [ks75vl](../author/ks75vl)"
+  description: "Team noobk got into the finals and ranked **SECOND**: [luibo](../author/luibo), [b40](../author/b40), [pickaxe](../author/pickaxe), [ks75vl](../author/ks75vl) and [midas](../author/midas)"
   organization: Viettel Cyber Security
   organization_url: https://matesctf.org/#!/about
   title: Mates CTF Season 3
