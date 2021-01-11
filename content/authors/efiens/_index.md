@@ -52,7 +52,7 @@ social:
   link: https://blog.efiens.com
 - icon: terminal
   icon_pack: fas
-  link: 'https://ctftime.org/'
+  link: 'https://ctftime.org/team/14322'
 - icon: envelope
   icon_pack: fas
   link: 'about/#contact'  # For a direct email link, use "mailto:test@example.org".
