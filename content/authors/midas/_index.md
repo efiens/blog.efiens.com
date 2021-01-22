@@ -65,3 +65,17 @@ email: ""
 user_groups:
 - Core Members
 ---
+
+The name is **Dang "midas" Le**, aka lkmidas, _lkmidas.
+
+Computer Engineering student at HCMUT.
+
+CTF player at [Team Efiens](https://efiens.com/).
+
+Pwner and reverser (absolute noob at both).
+
+Love memes, pixel art and the color green.
+
+Favorite animal is Pepe the Frog.
+
+Follow me on [Twitter](https://twitter.com/_lkmidas) and [Github](https://github.com/lkmidas).
