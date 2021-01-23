@@ -43,9 +43,9 @@ For me, this series serves as a reminder, an exploitation template for me to loo
 
 So let's start the first post of the series, where I demonstrate the most basic way to setup a Linux kernel pwn environment, and the most basic exploitation technique.
 
-{{< admonition note "Note" >}}
+{{% callout %}}
 *Use the table of contents on the right to navigate to the section that you are interested in.*
-{{< /admonition >}}
+{{% /callout %}}
 
 ## Setting up the environment
 
@@ -97,9 +97,9 @@ The purpose of this line is to spawn a **non-root shell** with UID `1000` after 
 - `/proc/kallsyms` lists all the addresses of all symbols loaded into the kernel.
 - `/sys/module/core/sections/.text` shows the address of kernel `.text` section, which is also its base address (even though in the case of this challenge, there is no such `/sys` directory, you can still retrieve the base address from `/proc/kallsyms` though).
 
-{{< admonition warning "Warning" >}}
-*Remember to set this back to `1000` when running the exploitation code, to avoid false positive while exploiting (you may think you have a root shell after exploiting, but you don't).*
-{{< /admonition >}}
+{{< callout >}}
+*Remember to set this back to **1000** when running the exploitation code, to avoid false positive while exploiting (you may think you have a root shell after exploiting, but you don't).*
+{{< /callout >}}
 
 Secondly, we decompress the file system to put our exploitation program into it later. After modifying it, I use this script [compress.sh](compress.sh) to compress it back into the given format:
 ```bash
@@ -138,9 +138,9 @@ Some notable flags are:
 - `-append` specifies additional boot options, this is also where we can enable/disable mitigation features.
 - All the other options can be found in the [QEMU documentation](https://manpages.debian.org/jessie/qemu-system-x86/qemu-system-x86_64.1.en.html).
 
-{{< admonition note "Note" >}}
+{{% callout %}}
 *This challenge uses `-hdb` to put `flag.txt` into `/dev/sda` instead of leaving the `flag.txt` as a normal file in the system. This is to prevent some dirty CTF tricks used by pwners.*
-{{< /admonition >}}
+{{% /callout %}}
 
 The first thing that should be done here is to add `-s` option to it. This options allows us to debug the emulator's kernel remotely from our host machine. All we need to do is to boot the emulator up like normal, then in the host machine, run:
 ```bash
@@ -150,9 +150,9 @@ $ gdb vmlinux
 
 Then, we can debug the system's kernel normally, just like when we attach `gdb` to a normal userland process.
 
-{{< admonition tip "Tip" >}}
+{{% callout %}}
 *You might want to disable `peda`, `pwndbg` or `GEF` when debugging remote kernel, because sometimes they might behave weirdly. Simply use `gdb --nx vmlinux`.*
-{{< /admonition >}}
+{{% /callout %}}
 
 The second thing we can do is modify the mitigation features to our practice needs. Of course, when facing a real challenge in a CTF, we may not want to do this, but again, this is me practicing different exploitation techniques in different scenarios, so modifying them is perfectly fine.
 
@@ -304,9 +304,9 @@ void escalate_privs(void){
 }
 ```
 
-{{< admonition tip "Tip" >}}
+{{% callout %}}
 *You can take note of the way I write the code, it is a very clean way of writing in-line assembly in C code using `intel syntax`.*
-{{< /admonition >}}
+{{% /callout %}}
 
 ### Returning to userland
 At the current state of the exploitation, if you simply return to a `userland` piece of code to pop a shell, you will be disappointed. The reason is because after running the above code, we are still executing in `kernel-mode`. In order to open a root shell, we have to return to `user-mode`. 
