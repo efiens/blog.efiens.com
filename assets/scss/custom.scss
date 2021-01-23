@@ -32,3 +32,9 @@ body {
 .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
 	color: #edda38;
 }
+
+
+.dark .alert pre, .dark .article-style aside pre, .article-style .dark aside pre, .dark .alert code, .dark .article-style aside code, .article-style .dark aside code {
+	color: #edda38;
+	/* background-color: initial; */
+}
