@@ -29,6 +29,8 @@ projects: []
 ---
 **This post is mirrored from its [original post at my blog](https://lkmidas.github.io/posts/20210123-linux-kernel-pwn-part-1/), some texts/links here maybe broken.**
 
+{{< toc >}}
+
 ## Preface
 In this series, I'm going to write about some basic stuffs in Linux kernel exploitation that I have learned in the last few weeks: from basic environment setup to some popular Linux kernel mitigations, and their corresponding exploitation techniques. 
 

@@ -28,6 +28,7 @@ image:
 projects: []
 ---
 
+{{< toc >}}
 ## Introduction
 *In this post, I assume that readers are somewhat comfortable with heap exploitation. If you are not, you can start with other simpler techniques available on the Internet to get used to it first.*
 

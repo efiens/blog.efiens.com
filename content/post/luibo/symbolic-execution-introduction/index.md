@@ -27,7 +27,7 @@ image:
 #   Otherwise, set `projects = []`.
 projects: ["symbolic-execution"]
 ---
-
+{{< toc >}}
 # The problem
 ```c
 1: void foobar(int a, int b) {

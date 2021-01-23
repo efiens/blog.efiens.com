@@ -27,7 +27,7 @@ image:
 #   Otherwise, set `projects = []`.
 projects: []
 ---
-
+{{< toc >}}
 # EOSGame
 
 Mới nhìn vào tên bài, cảm thấy khá hốt hoảng vì nghĩ rằng nay đã có CTF cho smart contract của EOS rồi à. Ơ nhưng không, vẫn chỉ là Ethereum thôi.
