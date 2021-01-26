@@ -312,4 +312,19 @@ item:
 
 #### MISC SECTION
 
+### 2020 
+- certificate_url: https://cryptohack.org/scoreboard/
+  date_start: "2020-12-31"
+  description: |- 
+    [pcback](../author/pcback) got **FIRST** in Vietnamese and **FIRST** worldwide in ranking score. 
+
+    [bmkiet](../author/bmkiet) and [_.npn._](../author/_.npn._) got #5 and #7 in Vietnamese community. 
+    
+    Efiens team recognizes Cryptohack is the solid wargame platform with top-notch challenges and supported contents. 
+  organization: Cryptohack
+  organization_url: https://cryptohack.org/
+  title: Cryptohack 2020
+  url: https://cryptohack.org/
+
+
 ---
