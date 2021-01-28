@@ -4,7 +4,7 @@
 title: "Learning Linux Kernel Exploitation - Part 2"
 subtitle: ""
 summary: "The second part of the series about learning Linux kernel exploitation through hxpCTF2020 kernel-rop: Adding SMEP, KPTI and SMAP"
-authors: []
+authors: [midas]
 tags: []
 categories: []
 date: 2021-01-28T16:04:24+07:00
