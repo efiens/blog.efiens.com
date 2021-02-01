@@ -27,7 +27,7 @@ image:
 #   Otherwise, set `projects = []`.
 projects: []
 ---
-**This post is mirrored from its [original post at my blog](https://lkmidas.github.io/posts/20210123-linux-kernel-pwn-part-1/), some texts/links here maybe broken.**
+**This post is mirrored from its [original post at my blog](https://lkmidas.github.io/posts/justctf2020_writeups/), some texts/links here maybe broken.**
 
 {{< toc >}}
 
