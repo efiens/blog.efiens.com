@@ -12,7 +12,7 @@ role: Security Researcher
 superuser: true
 
 user_groups:
-- Advisors
+- Alumni
 ---
 
 Bao (B40) is a security researcher at VNG Corp. With 3+ years diving in Blockchain field, he took part in developing
