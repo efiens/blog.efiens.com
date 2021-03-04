@@ -7,7 +7,7 @@ authors:
 - "edisc"
 
 # Is this the primary user of the site?
-superuser: false
+superuser: true
 
 # Role/position (e.g., Professor of Artificial Intelligence)
 role: Reverser
