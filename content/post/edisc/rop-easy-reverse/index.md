@@ -55,7 +55,7 @@ rop_easy: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically li
 Với phân tích tĩnh, bước đầu có thể thấy: chương trình này dùng kỹ thuật ROP, do đó luồng thực thi có thể  bị thay đổi theo nội dung trên stack. Nó không bị packed và có thể sẽ yêu cầu mình nhập input và sẽ trả về `You got the flag!` nếu thành công và `No flag for you!` nếu thất bại. Vậy flag mình cần tìm chính là input hợp lệ.  
 
 ---
-# Phân tích tĩnh (Dynamic Analysis)
+# Phân tích động (Dynamic Analysis)
 ## Chạy thử file
 - Trước khi chạy 1 binary mà chúng ta không biết rõ nó là gì, tốt nhất nên đảm bảo rằng nó không chứa mã độc trong đó. Một trong những cách đơn giản nhất đó là upload lên [virustotal](https://www.virustotal.com/gui/)  
 ![virustotal](./Images/virus_total.png)
@@ -65,7 +65,7 @@ Với phân tích tĩnh, bước đầu có thể thấy: chương trình này d
 ## Tiến hành phân tích với IDA pro
 - Tôi sử dụng IDA pro 7.5 để phân tích chương trình này.
 ![ida](./Images/ida_begin.png)
-- Có khá ít hàm, mặc dù file đã bị striped, nhưng IDA vẫn xác định được hàm main.  
+- Có khá ít hàm, mặc dù file đã bị stripped, nhưng IDA vẫn xác định được hàm main.  
 
 ```
 ; int __fastcall main(int, char **, char **)
@@ -108,7 +108,8 @@ start:0000000000004033                 retn
   - Chương trình sẽ tiến hành kiểm tra từng ký tự nhập.
   - Với mỗi ký tự lặp, nó sẽ thực hiện một loạt các tính toán bắt đầu từ địa chỉ `0x5555555580ea`
   - Dùng 1 biến để lưu tổng các tính toán của từng ký tự
-  - Sau khi xét hết các phần tử của input, nó tính `tổng + (độ_dài_input xor 0x22)`
+  - Sau khi xét hết các phần tử của input, nó tính:  
+  `tổng + (độ_dài_input xor 0x22)`
   - Nếu tổng này bằng 0 thì in `You got the flag!` ngược lại `No flag for you!`.
 
 - Cụ thể, chương trình như sau:
@@ -340,11 +341,11 @@ def main():
 gdb ./rop_easy
 source scriptting.py
 ```
-- Chạy và ta được kết quả:
+- Ta được kết quả:
 ![bruteforce](./Images/bruteforce.png)
 - Sau khi chạy xong:
 ![result](./Images/result.png)
 
 ## Nhược điểm
-- Thuật toán bruteforce có nhược điểm là thơi gian chạy hơi lâu, tôi chạy mất khoảng 5-10'. Tôi sẽ nghiên cứu và cải thiện nó trong tương lai.
+- Thuật toán bruteforce có nhược điểm là thời gian chạy hơi lâu, tôi chạy mất khoảng 5-10'. Tôi sẽ nghiên cứu và cải thiện nó trong tương lai.
 - Bạn có thể tham khảo full script [tại đây](https://github.com/minhlongmt183/Reverse101/blob/main/ROPEASY/scriptting.py)
