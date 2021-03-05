@@ -335,6 +335,11 @@ def main():
             if check[j] == 0:
                 break
 ```
+- Tiến hành chạy
+```
+gdb ./rop_easy
+source scriptting.py
+```
 - Chạy và ta được kết quả:
 ![bruteforce](./Images/bruteforce.png)
 - Sau khi chạy xong:
