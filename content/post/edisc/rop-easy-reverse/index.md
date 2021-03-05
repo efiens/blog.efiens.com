@@ -3,7 +3,7 @@
 
 title: "Rop Easy Reverse"
 subtitle: ""
-summary: "Ở bài viết này, toi sẽ tiến hành reverse tệp tin đơn giản rop_easy"
+summary: "Ở bài viết này, tôi sẽ tiến hành reverse tệp tin đơn giản rop_easy"
 authors: [edisc]
 tags: []
 categories: []
