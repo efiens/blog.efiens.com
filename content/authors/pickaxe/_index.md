@@ -18,7 +18,7 @@ organizations:
   url: ""
 
 # Short bio (displayed in user profile at end of posts)
-bio: 
+bio: Learner. Daydreamer.
 
 # Social/Academic Networking
 # For available icons, see: https://sourcethemes.com/academic/docs/page-builder/#icons
@@ -35,10 +35,18 @@ social:
 #   link: files/cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: ""
+email: "minhquangbui99@gmail.com"
 
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
 user_groups:
 - Core Members
+
+interests:
+- Linux kernel
+- CTF
+- Bug hunting
+- Open source software development
 ---
+
+Minh (pickaxe) is an undergraduate student majoring in Computer Science at HCMUT. He is a pwner at Efiens Team.
