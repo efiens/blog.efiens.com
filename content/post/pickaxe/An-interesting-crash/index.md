@@ -3,7 +3,7 @@
 
 title: "Một cái crash thú vị"
 subtitle: ""
-summary: ""
+summary: "Một blog ngắn về một cái crash và những gì mình học được"
 authors: [pickaxe]
 tags: []
 categories: []
@@ -48,6 +48,7 @@ Khi compile và chạy thì bị crash, coi core dump file thì thấy nguyên n
 0x0000000000001188 <+31>:    mov    QWORD PTR [rbp-0x8],rax
 ```
 Code asm gọi hàm `getenv`, sau đó lệnh `cdqe` sẽ sign extend eax rồi lưu kết quả vào rax và chính lệnh này dẫn đến con trỏ bị sai.
+
 Ví dụ: rax đang trỏ 0x7fff ff00 0000 sau lệnh này rax thành 0xffff ffff ff00 0000
 Sau đó mình coi kỹ lại output lúc compile thì thấy
 ```
@@ -74,6 +75,7 @@ https://github.com/gcc-mirror/gcc/blob/2cde2d620fc5ff60264ee825fd6eea457d7c51d9/
     = build_varargs_function_type_list (integer_type_node, NULL_TREE);
 ```
 https://github.com/gcc-mirror/gcc/blob/2cde2d620fc5ff60264ee825fd6eea457d7c51d9/gcc/c-family/c-common.c#L4465-L4466
+
 Vậy có thể thấy nếu ta sử dụng 1 hàm mà gcc không tìm thấy định nghĩa của hàm này, gcc sẽ giả định hàm này có kiểu int(void) dẫn đến lỗi trong quá trình compile như trên.
 
 Coi kỹ lại warning lúc compile thì mình thấy thêm warning ở dòng khởi tạo biến `env` bằng giá trị trả về của hàm `getenv`
