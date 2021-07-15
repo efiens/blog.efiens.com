@@ -12,7 +12,7 @@ role: Just Chicken
 superuser: true
 
 user_groups:
-- Advisors
+- Alumni
 
 
 bio: I like programming languages. I want to read those compiler stuff, but I'm just a noob.

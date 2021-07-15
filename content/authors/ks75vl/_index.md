@@ -12,5 +12,5 @@ role: Code Reverser
 superuser: true
 
 user_groups:
-- Core Members
+- Alumni
 ---

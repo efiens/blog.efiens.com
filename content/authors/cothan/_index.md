@@ -53,7 +53,7 @@ social:
   link: http://github.com/cothan
 
 user_groups:
-- Advisors
+- Alumni
 
 ---
 

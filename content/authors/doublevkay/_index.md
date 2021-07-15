@@ -39,7 +39,8 @@ social:
 email: "doublevkay@gmail.com"
 
 user_groups:
-- Core Members
+- Specialists
+
 ---
 
 Noob ...
