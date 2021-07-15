@@ -13,7 +13,7 @@ subtitle = ""
 [content]
   # Choose which groups/teams of users to display.
   #   Edit `user_groups` in each user's profile to add them to one or more of these groups.
-  user_groups = ["Presidents", "Advisors", # How to display this in 1 row?
+  user_groups = ["Advisors", "Presidents", # How to display this in 1 row?
                  "Specialists",
                  "Core Members",
                  "Members",
