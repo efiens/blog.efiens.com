@@ -10,7 +10,7 @@ authors:
 superuser: true
 
 # Role/position (e.g., Professor of Artificial Intelligence)
-role: Memer
+role: Pwner/Memer
 
 # Organizations/Affiliations
 organizations:
