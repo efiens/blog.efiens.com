@@ -241,3 +241,9 @@ Interceptor.attach(SF.base.add(offset), {
   }
 })
 ```
+
+## bfinject
+
+> Easy dylib injection for jailbroken 64-bit iOS 11.0 - 11.1.2. Compatible with Electra and LiberiOS jailbreaks
+
+Update soon(tm)

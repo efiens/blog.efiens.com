@@ -28,7 +28,17 @@ image:
 projects: ["osx", "binary-format"]
 ---
 
-The following posts will introduce you to the binary format used by Apple, Mach-O. We first learn the basic format (1), then diving deeper into the import and export tables, and how the loader (dyld) binds these symbols (2). We continue to explore how Apple signs the binary (3) and how Apple prevents copying apps (4). And as a bonus, I introduce some methods to inject into the Mach-O binary by either modifying the binary or using tools such as Frida (5).
+The following posts will introduce you to the binary format used by Apple, Mach-O. We first learn the basic format (1), then diving deeper into the import and export tables, and how the loader (dyld) binds these symbols (2). We continue to explore how Apple signs the binary (3) and how Apple prevents copying apps (4).
+
+I will keep the posts updated with what I've researched. Readers can see the list below for my current research target.
+
+- methods to inject into the Mach-O binary by either modifying the binary or using tools such as Frida (5).
+- Obj-C class-dump
+- Obj-C runtime
+- Swift and Obj-C and C
+- `__cstring` encryption (future work)
+
+Series index:
 
 1. [Overview of Mach-O binary](macho)
 2. [Mach-O linker information](linker-info)
@@ -51,12 +61,18 @@ Official sourcecode of Apple:
 - https://opensource.apple.com/source/dyld/dyld-655.1.1/launch-cache/MachOTrie.hpp.auto.html
 - https://opensource.apple.com/source/dyld/dyld-655.1.1/src/ImageLoaderMachOClassic.cpp.auto.html
 - https://opensource.apple.com/source/cctools/cctools-973.0.1/include/mach-o/loader.h.auto.html
+- https://opensource.apple.com/source/objc4/
 
 Novel research:
 
 - https://github.com/pwn0rz/fairplay_research
 
-Worth mentioning:
+Redback, introduced in Blackhat Asia 2020, but no public source-code release:
+
+- https://blog.cystack.net/static-binary-injection-with-high-level-code/
+- https://groundx.io/redback/
+
+Worth checking out:
 
 - https://github.com/facebook/fishhook
 - http://www.cycript.org/
@@ -65,6 +81,8 @@ Worth mentioning:
 - https://github.com/jmpews/Dobby
 - https://geosn0w.github.io/ 
 - https://github.com/akemin-dayo/AppSync
+- https://github.com/BishopFox/bfinject
+- https://github.com/0xxd0/objc4
 
 > I will probably do some jailbreak research to answer questions such as what is performed during jailbreak.
 
