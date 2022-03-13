@@ -265,7 +265,11 @@ item:
 
 #### 2019
 - date_start: "2019-11-01"
-  description: "Team noobk got into the finals and ranked **SECOND**: [luibo](../author/luibo), [b40](../author/b40), [pickaxe](../author/pickaxe), [ks75vl](../author/ks75vl) and [midas](../author/midas)"
+  description: |-
+    Team noobk got into the finals and ranked **SECOND**: [196](../author/196), [luibo](../author/luibo), [b40](../author/b40), [pickaxe](../author/pickaxe), [ks75vl](../author/ks75vl) and [midas](../author/midas)
+    
+    Our team is then featured in a [school newspaper article](https://www.hcmut.edu.vn/vi/newsletter/view/tin-tuc/5640-doi-noobk-cua-truong-dh-bach-khoa-dat-giai-nhi-cuoc-thi-ve-an-toan-thong-tin--mates-ctf-2019-).
+    
   organization: Viettel Cyber Security
   organization_url: https://matesctf.org/#!/about
   title: Mates CTF Season 3
